@@ -285,43 +285,38 @@ body{
 ::-webkit-scrollbar-thumb{background:var(--silver);border-radius:10px;}
 
 @keyframes splashFade{from{opacity:0;}to{opacity:1;}}
-#secret-screen{position:fixed;inset:0;z-index:4000;background:#000;display:none;}
-#secret-screen.show{display:block;}
-.tap-zone{position:absolute;width:38%;height:26%;z-index:4001;}
-.tap-zone.tap-bl{left:0;bottom:0;}
-.tap-zone.tap-br{right:0;bottom:0;}
-#secret-reveal{
-  position:absolute;inset:0;display:none;z-index:4002;background:#000;
+#gate-screen{
+  position:fixed;inset:0;z-index:4000;background:#000;display:none;
   flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px;
   animation:splashFade 0.4s ease;
 }
-#secret-reveal.show{display:flex;}
-#secret-field{
+#gate-screen.show{display:flex;}
+#gate-field{
   width:100%;max-width:320px;min-height:58px;border-radius:14px;
   border:1.5px solid var(--silver);background:rgba(232,234,237,0.06);
   display:flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;
   padding:0 16px;transition:all 0.3s ease;
 }
-#secret-field i{font-size:20px;color:var(--silver-bright);transition:color 0.3s ease;}
-#secret-field.armed{
-  border-color:var(--silver);background:rgba(255,215,0,0.08);
+#gate-field i{font-size:20px;color:var(--silver-bright);transition:color 0.3s ease;}
+#gate-field:focus-within{
+  background:rgba(255,215,0,0.08);
   box-shadow:0 0 22px rgba(255,215,0,0.45);
 }
-#secret-field.armed i{color:var(--gold-bright);}
-#secret-input{
+#gate-field:focus-within i{color:var(--gold-bright);}
+#gate-input{
   flex:1;background:transparent;border:none;outline:none;
   color:#fff;font-size:22px;font-weight:800;text-align:center;letter-spacing:6px;width:100%;
 }
-#secret-input::placeholder{color:#6b7488;letter-spacing:0;font-weight:500;font-size:15px;}
-#secret-confirm{
+#gate-input::placeholder{color:#6b7488;letter-spacing:0;font-weight:500;font-size:15px;}
+#gate-confirm{
   width:100%;max-width:320px;padding:15px;border-radius:14px;cursor:pointer;
   background:linear-gradient(160deg,#e8eaed 0%,#c2c6cc 45%,#9da2a8 100%);
   border:1.5px solid var(--silver);color:#05080f;
   font-weight:900;font-size:15px;letter-spacing:1px;
   box-shadow:0 4px 16px rgba(255,215,0,0.30);transition:all 0.15s ease;
 }
-#secret-confirm:active{transform:scale(0.97);box-shadow:0 0 18px rgba(255,215,0,0.55);}
-#secret-confirm:disabled{opacity:0.45;cursor:not-allowed;}
+#gate-confirm:active{transform:scale(0.97);box-shadow:0 0 18px rgba(255,215,0,0.55);}
+#gate-confirm:disabled{opacity:0.45;cursor:not-allowed;}
 #gate-err{color:var(--red-off-bright);font-size:12px;font-weight:700;min-height:16px;text-align:center;}
 #gate-lockout-note{color:var(--red-off-bright);font-size:13px;font-weight:800;max-width:340px;line-height:1.5;text-align:center;}
 #gate-setup-note{font-size:11px;color:#8ea0c2;max-width:340px;line-height:1.5;text-align:center;}
@@ -576,20 +571,16 @@ body{
   </div>
 </div>
 
-<div id="secret-screen">
-  <div class="tap-zone tap-bl" onclick="Admin.secretTap('BL')"></div>
-  <div class="tap-zone tap-br" onclick="Admin.secretTap('BR')"></div>
-  <div id="secret-reveal">
-    <div id="secret-field" onclick="Admin.armSecretField()">
-      <i class="fas fa-lock"></i>
-      <input type="password" id="secret-input" inputmode="numeric" autocomplete="off"
-             placeholder="Парола" onkeydown="if(event.key==='Enter'){Admin.tryLogin();}">
-    </div>
-    <button id="secret-confirm" onclick="Admin.tryLogin()">ОТКЛЮЧИ</button>
-    <div id="gate-err"></div>
-    <div id="gate-lockout-note"></div>
-    <div id="gate-setup-note"></div>
-  </div>
+<div id="gate-screen">
+  <label id="gate-field">
+    <i class="fas fa-lock"></i>
+    <input type="password" id="gate-input" inputmode="numeric" autocomplete="off"
+           placeholder="Парола" onkeydown="if(event.key==='Enter'){Admin.tryLogin();}">
+  </label>
+  <button id="gate-confirm" onclick="Admin.tryLogin()">ОТКЛЮЧИ</button>
+  <div id="gate-err"></div>
+  <div id="gate-lockout-note"></div>
+  <div id="gate-setup-note"></div>
 </div>
 
 <div id="app">
@@ -943,8 +934,6 @@ const Admin = {
   pickerOptions: [],
   pickerOnSelect: null,
   depositTargetUid: null,
-  secretSeq: [],
-  secretArmed: false,
 
   esc(v) {
     return String(v == null ? '' : v)
@@ -1009,23 +998,6 @@ const Admin = {
     return PACKAGES.find(p => p.id === key || p.name === key) || null;
   },
 
-  secretTap(corner) {
-    if (this.secretArmed) return;
-    const target = ['BL', 'BR', 'BR', 'BL'];
-    this.secretSeq.push(corner);
-    if (this.secretSeq.length > target.length) this.secretSeq = this.secretSeq.slice(-target.length);
-    if (this.secretSeq.length === target.length && this.secretSeq.every((c, i) => c === target[i])) {
-      this.secretArmed = true;
-      document.getElementById('secret-reveal').classList.add('show');
-      Admin.refreshGateStatus();
-    }
-  },
-
-  armSecretField() {
-    document.getElementById('secret-field').classList.add('armed');
-    document.getElementById('secret-input').focus();
-  },
-
   async refreshGateStatus() {
     try {
       const r = await window.SUPABASE.rpc('admin_gate_status');
@@ -1047,9 +1019,9 @@ const Admin = {
   },
 
   async tryLogin() {
-    const input = document.getElementById('secret-input');
+    const input = document.getElementById('gate-input');
     const errEl = document.getElementById('gate-err');
-    const btn = document.getElementById('secret-confirm');
+    const btn = document.getElementById('gate-confirm');
     const pass = input.value.trim();
     errEl.innerText = '';
 
@@ -1093,7 +1065,7 @@ const Admin = {
   },
 
   showLockout(ms) {
-    const btn = document.getElementById('secret-confirm');
+    const btn = document.getElementById('gate-confirm');
     const note = document.getElementById('gate-lockout-note');
     Admin.lockEnd = Admin.serverNow() + ms;
     btn.disabled = true;
@@ -1138,7 +1110,7 @@ const Admin = {
   },
 
   enterPanel() {
-    document.getElementById('secret-screen').classList.remove('show');
+    document.getElementById('gate-screen').classList.remove('show');
     document.getElementById('admin-root').style.display = 'flex';
     Admin.boot();
   },
@@ -1148,7 +1120,7 @@ const Admin = {
       Admin.enterPanel();
       return;
     }
-    document.getElementById('secret-screen').classList.add('show');
+    document.getElementById('gate-screen').classList.add('show');
     Admin.refreshGateStatus();
   },
 
