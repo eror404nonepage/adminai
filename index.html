@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Admin</title>
+<meta name="application-name" content="Admin">
+<meta name="apple-mobile-web-app-title" content="Admin">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#05080f">
+<link rel="icon" type="image/jpeg" href="data:image/jpeg;base64,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">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var SUPABASE_URL = 'https://nyfyalnmenzfwxxsvlpp.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_U9O68-oHqkTUVVZyUogQWw_hrrIbj43';
+
+  var SB = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+    auth: { persistSession: false },
+    realtime: { params: { eventsPerSecond: 20 } }
+  });
+
+  var SENTINEL = { __srvts: true };
+
+  function norm(p) {
+    if (p === undefined || p === null) return '';
+    return String(p).replace(/^\/+|\/+$/g, '');
+  }
+
+  function lastSeg(p) {
+    var s = norm(p).split('/');
+    return s.length ? s[s.length - 1] : null;
+  }
+
+  var PUSH_CHARS = '-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz';
+  var lastPushMs = 0;
+
+  function pushId() {
+    var ts = SrvTime.now();
+    if (ts <= lastPushMs) ts = lastPushMs + 1;
+    lastPushMs = ts;
+    var id = '';
+    for (var i = 0; i < 8; i++) { id = PUSH_CHARS.charAt(ts % 64) + id; ts = Math.floor(ts / 64); }
+    for (var j = 0; j < 12; j++) id += PUSH_CHARS.charAt(Math.floor(Math.random() * 64));
+    return id;
+  }
+
+  var perf = (typeof performance !== 'undefined' && performance.now)
+    ? function () { return performance.now(); }
+    : function () { return Date.now(); };
+
+  var SrvTime = {
+    base: 0,
+    mono: 0,
+    ready: false,
+    info: null,
+
+    apply: function (d) {
+      if (!d) return;
+      this.info = d;
+      this.base = Number(d.nowMs);
+      this.mono = perf();
+      this.ready = true;
+    },
+
+    now: function () {
+      if (!this.ready) return Date.now();
+      return Math.round(this.base + (perf() - this.mono));
+    },
+
+    sync: async function () {
+      var r = await SB.rpc('server_time_info');
+      if (!r.error) this.apply(r.data);
+      return this.now();
+    },
+
+    tick: async function () {
+      var r = await SB.rpc('tick_automation');
+      if (!r.error) this.apply(r.data);
+      else await this.sync();
+      return this.now();
+    }
+  };
+
+  var SOFIA_FMT = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Sofia', year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+  });
+
+  function sofiaParts(ms) {
+    var out = {};
+    SOFIA_FMT.formatToParts(new Date(ms)).forEach(function (p) { out[p.type] = p.value; });
+    if (out.hour === '24') out.hour = '00';
+    return out;
+  }
+
+  function sofiaIsWithdrawWindow(ms) {
+    var p = sofiaParts(ms);
+    var dow = new Date(p.year + '-' + p.month + '-' + p.day + 'T12:00:00Z').getUTCDay();
+    var h = +p.hour;
+    return dow >= 1 && dow <= 5 && h >= 8 && h < 20;
+  }
+
+  function isSentinel(v) {
+    return v && typeof v === 'object' && v.__srvts === true;
+  }
+
+  function clean(v) {
+    if (v === undefined) return null;
+    if (isSentinel(v)) return { __srvts: true };
+    if (Array.isArray(v)) return v.map(clean);
+    if (v && typeof v === 'object') {
+      var o = {};
+      for (var k in v) if (Object.prototype.hasOwnProperty.call(v, k)) o[k] = clean(v[k]);
+      return o;
+    }
+    return v;
+  }
+
+  function mkSnap(value) {
+    var v = (value === undefined ? null : value);
+    return {
+      exists: function () { return v !== null && v !== undefined; },
+      val: function () { return v; }
+    };
+  }
+
+  var listeners = [];
+  var pending = {};
+  var channel = null;
+
+  function affects(changedPath, listenPath) {
+    if (changedPath === listenPath) return true;
+    if (changedPath.indexOf(listenPath + '/') === 0) return true;
+    if (listenPath.indexOf(changedPath + '/') === 0) return true;
+    return false;
+  }
+
+  async function refresh(path, force) {
+    var r = await SB.rpc('rtdb_get', { p_path: path });
+    if (r.error) return;
+    var val = (r.data === undefined ? null : r.data);
+    var enc = JSON.stringify(val);
+    listeners.forEach(function (l) {
+      if (l.path !== path) return;
+      if (!force && l.last === enc) return;
+      l.last = enc;
+      try { l.cb(mkSnap(val)); } catch (e) {}
+    });
+  }
+
+  function scheduleRefresh(path) {
+    if (pending[path]) return;
+    pending[path] = setTimeout(function () {
+      delete pending[path];
+      refresh(path, false);
+    }, 180);
+  }
+
+  function onRowChanged(rowPath) {
+    var seen = {};
+    listeners.forEach(function (l) {
+      if (seen[l.path]) return;
+      if (affects(rowPath, l.path)) { seen[l.path] = 1; scheduleRefresh(l.path); }
+    });
+  }
+
+  function ensureChannel() {
+    if (channel) return;
+    try {
+      channel = SB.channel('rtdb-stream')
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'rtdb' }, function (payload) {
+          var row = payload['new'] || payload.old || {};
+          if (row.path) onRowChanged(row.path);
+        })
+        .subscribe();
+    } catch (e) {}
+  }
+
+  var polling = false;
+  setInterval(function () {
+    if (polling || !listeners.length || document.hidden) return;
+    polling = true;
+    var paths = {};
+    listeners.forEach(function (l) { paths[l.path] = 1; });
+    Promise.all(Object.keys(paths).map(function (p) { return refresh(p, false); }))
+      .catch(function () {})
+      .then(function () { polling = false; });
+  }, 12000);
+
+  function SbRef(path) {
+    this.path = norm(path);
+  }
+
+  SbRef.prototype.get = async function () {
+    var r = await SB.rpc('rtdb_get', { p_path: this.path });
+    if (r.error) throw r.error;
+    return mkSnap(r.data === undefined ? null : r.data);
+  };
+
+  SbRef.prototype.set = async function (value) {
+    var r = await SB.rpc('rtdb_set', { p_path: this.path, p_value: clean(value) });
+    if (r.error) throw r.error;
+    onRowChanged(this.path);
+  };
+
+  SbRef.prototype.update = async function (obj) {
+    var r = await SB.rpc('rtdb_update', { p_path: this.path, p_patch: clean(obj) });
+    if (r.error) throw r.error;
+    onRowChanged(this.path);
+  };
+
+  SbRef.prototype.remove = async function () {
+    var r = await SB.rpc('rtdb_remove', { p_path: this.path });
+    if (r.error) throw r.error;
+    onRowChanged(this.path);
+  };
+
+  SbRef.prototype.push = function (value) {
+    return new SbRef(this.path + '/' + pushId()).set(value);
+  };
+
+  SbRef.prototype.on = function (evt, cb) {
+    if (evt !== 'value') return cb;
+    listeners.push({ path: this.path, cb: cb, last: undefined });
+    ensureChannel();
+    refresh(this.path, true);
+    return cb;
+  };
+
+  function ref(path) { return new SbRef(path || ''); }
+
+  window.firebase = {
+    database: Object.assign(function () { return { ref: ref }; }, {
+      ServerValue: { TIMESTAMP: SENTINEL }
+    })
+  };
+
+  window.SUPABASE = SB;
+  window.SrvTime = SrvTime;
+  window.sofiaIsWithdrawWindow = sofiaIsWithdrawWindow;
+
+  window.rtdbReady = SrvTime.tick().catch(function () { return SrvTime.sync().catch(function () {}); });
+
+  setInterval(function () {
+    if (document.hidden) return;
+    SrvTime.tick().catch(function () {});
+  }, 30000);
+
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) SrvTime.tick().catch(function () {});
+  });
+})();
+</script>
+
+<style>
+:root{
+  --gold-bright:#FFD700;
+  --silver:#C7CDD4;
+  --silver-bright:#F4F7FA;
+  --navy-deep:#061224;
+  --card-bg: radial-gradient(circle at top left, rgba(80,140,255,0.30) 0%, transparent 60%), radial-gradient(circle at bottom right, rgba(20,45,90,0.55) 0%, transparent 65%), #071528;
+  --text-white:#ffffff;
+  --text-dim:#c7cdd4;
+  --green-on:#0b3d24;
+  --green-on-bright:#1ecb6b;
+  --red-off-bright:#ff3b4e;
+  --radius-sm:10px;
+  --radius-md:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;-webkit-tap-highlight-color:transparent;}
+button,[onclick]{touch-action:manipulation;-webkit-user-select:none;user-select:none;}
+body{
+  background:#061224;
+  background-image:
+    radial-gradient(circle at 50% -10%, rgba(47,139,255,0.18) 0%, transparent 55%),
+    radial-gradient(circle at 20% 110%, rgba(30,60,120,0.25) 0%, transparent 50%);
+  min-height:100vh;
+  display:flex;justify-content:center;
+  color:var(--text-white);
+}
+#app{width:100%;max-width:520px;min-height:100vh;display:flex;flex-direction:column;padding:16px 14px 50px;}
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-thumb{background:var(--silver);border-radius:10px;}
+
+@keyframes splashFade{from{opacity:0;}to{opacity:1;}}
+#secret-screen{position:fixed;inset:0;z-index:4000;background:#000;display:none;}
+#secret-screen.show{display:block;}
+.tap-zone{position:absolute;width:38%;height:26%;z-index:4001;}
+.tap-zone.tap-bl{left:0;bottom:0;}
+.tap-zone.tap-br{right:0;bottom:0;}
+#secret-reveal{
+  position:absolute;inset:0;display:none;z-index:4002;background:#000;
+  flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px;
+  animation:splashFade 0.4s ease;
+}
+#secret-reveal.show{display:flex;}
+#secret-field{
+  width:100%;max-width:320px;min-height:58px;border-radius:14px;
+  border:1.5px solid var(--silver);background:rgba(232,234,237,0.06);
+  display:flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;
+  padding:0 16px;transition:all 0.3s ease;
+}
+#secret-field i{font-size:20px;color:var(--silver-bright);transition:color 0.3s ease;}
+#secret-field.armed{
+  border-color:var(--silver);background:rgba(255,215,0,0.08);
+  box-shadow:0 0 22px rgba(255,215,0,0.45);
+}
+#secret-field.armed i{color:var(--gold-bright);}
+#secret-input{
+  flex:1;background:transparent;border:none;outline:none;
+  color:#fff;font-size:22px;font-weight:800;text-align:center;letter-spacing:6px;width:100%;
+}
+#secret-input::placeholder{color:#6b7488;letter-spacing:0;font-weight:500;font-size:15px;}
+#secret-confirm{
+  width:100%;max-width:320px;padding:15px;border-radius:14px;cursor:pointer;
+  background:linear-gradient(160deg,#e8eaed 0%,#c2c6cc 45%,#9da2a8 100%);
+  border:1.5px solid var(--silver);color:#05080f;
+  font-weight:900;font-size:15px;letter-spacing:1px;
+  box-shadow:0 4px 16px rgba(255,215,0,0.30);transition:all 0.15s ease;
+}
+#secret-confirm:active{transform:scale(0.97);box-shadow:0 0 18px rgba(255,215,0,0.55);}
+#secret-confirm:disabled{opacity:0.45;cursor:not-allowed;}
+#gate-err{color:var(--red-off-bright);font-size:12px;font-weight:700;min-height:16px;text-align:center;}
+#gate-lockout-note{color:var(--red-off-bright);font-size:13px;font-weight:800;max-width:340px;line-height:1.5;text-align:center;}
+#gate-setup-note{font-size:11px;color:#8ea0c2;max-width:340px;line-height:1.5;text-align:center;}
+
+@keyframes intrusionPulse{
+  from{background:rgba(70,0,0,0.92);}
+  to{background:rgba(120,0,0,0.95);}
+}
+.intrusion-overlay{
+  display:none;position:fixed;inset:0;z-index:5000;
+  background:rgba(60,0,0,0.92);
+  align-items:center;justify-content:center;padding:24px;text-align:center;
+  animation:intrusionPulse 1s infinite alternate;
+}
+.intrusion-overlay.show{display:flex;}
+.intrusion-box{max-width:380px;display:flex;flex-direction:column;gap:16px;align-items:center;}
+.intrusion-box i{font-size:54px;color:var(--red-off-bright);}
+.intrusion-box h2{font-size:20px;font-weight:900;color:#fff;letter-spacing:0.5px;}
+.intrusion-box p{font-size:14px;color:#ffd0d4;line-height:1.5;font-weight:600;}
+.intrusion-box .timer{font-size:28px;font-weight:900;color:#fff;}
+.intrusion-box button{
+  margin-top:6px;padding:12px 22px;border-radius:10px;border:1px solid #fff;
+  background:transparent;color:#fff;font-weight:800;font-size:13px;cursor:pointer;
+}
+
+#admin-root{display:none;flex-direction:column;gap:14px;}
+.top-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.nav-sq{
+  aspect-ratio:1/1;border-radius:var(--radius-md);
+  background:var(--card-bg);
+  border:1.5px solid var(--gold-bright);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:transform .15s ease;
+  position:relative;
+  box-shadow:0 6px 18px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.nav-sq:active{transform:scale(0.95);}
+.nav-sq i{font-size:28px;color:var(--silver);filter:drop-shadow(0 1px 3px rgba(0,0,0,0.6));}
+.badge{
+  position:absolute;top:-6px;right:-6px;background:var(--red-off-bright);color:#fff;
+  font-size:10px;font-weight:800;border-radius:999px;min-width:18px;height:18px;
+  display:none;align-items:center;justify-content:center;padding:0 4px;
+  border:1px solid var(--navy-deep);
+}
+.badge.inline{position:static;margin-left:8px;}
+.admin-info-btn{
+  width:100%;padding:16px;border-radius:var(--radius-md);
+  background:var(--card-bg);border:1.5px solid var(--gold-bright);
+  color:#fff;font-weight:900;font-size:15px;letter-spacing:1.5px;text-align:center;cursor:pointer;
+  box-shadow:0 6px 20px rgba(255,215,0,0.15), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.admin-info-btn i{color:var(--gold-bright);}
+.wide-action-btn{
+  width:100%;padding:16px;border-radius:var(--radius-md);
+  background:var(--card-bg);border:1.5px solid var(--gold-bright);
+  color:#fff;font-weight:800;font-size:14px;text-align:center;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 5px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.wide-action-btn > i{color:var(--silver);font-size:18px;}
+.admin-info-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 4px;border-bottom:1px solid rgba(212,175,55,0.25);
+  font-size:12.5px;
+}
+.admin-info-row:last-child{border-bottom:none;}
+.admin-info-row .lbl{color:var(--text-dim);font-weight:600;}
+.admin-info-row .val{color:#fff;font-weight:900;font-size:14px;}
+.section-card{
+  background:var(--card-bg);border:1.5px solid var(--gold-bright);border-radius:var(--radius-md);
+  padding:14px;display:flex;flex-direction:column;gap:10px;
+}
+.section-title{font-size:13px;font-weight:900;letter-spacing:0.5px;color:#fff;display:flex;align-items:center;gap:8px;}
+.section-title i{color:var(--silver);filter:drop-shadow(0 0 5px rgba(199,205,212,0.3));}
+.srv-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;font-size:12.5px;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);}
+.srv-row:last-of-type{border-bottom:none;}
+.srv-row span{color:var(--silver);opacity:.75;}
+.srv-row b{color:#fff;font-variant-numeric:tabular-nums;}
+.srv-row b.ok{color:#4ade80;}
+.srv-row b.no{color:var(--red-off-bright);}
+.srv-note{margin-top:8px;font-size:10.5px;font-weight:600;opacity:.45;line-height:1.45;}
+.toggle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.toggle-sq{
+  aspect-ratio:1/1;border-radius:var(--radius-md);
+  border:1.5px solid var(--gold-bright);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  cursor:pointer;text-align:center;padding:6px;
+  background:var(--card-bg);
+  transition:background .25s ease, border-color .25s ease;
+}
+.toggle-sq i{font-size:18px;color:var(--silver);}
+.toggle-sq span{font-size:9.5px;font-weight:800;color:#fff;line-height:1.2;}
+.toggle-sq.on{background:var(--green-on);border-color:var(--green-on-bright);}
+.toggle-sq.on i{color:var(--green-on-bright);}
+.toggle-sq.danger{background:#3a0a10;border-color:var(--red-off-bright);}
+.toggle-sq.danger i{color:var(--red-off-bright);font-size:26px;}
+.view{display:none;flex-direction:column;gap:12px;}
+.view.active{display:flex;}
+.view-header{display:flex;align-items:center;gap:10px;}
+.back-btn{
+  width:36px;height:36px;border-radius:10px;border:1px solid var(--silver);
+  background:rgba(255,255,255,0.05);color:#fff;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;flex-shrink:0;
+}
+.view-header h2{font-size:16px;font-weight:900;}
+.search-bar{
+  display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);
+  border:1px solid var(--silver);border-radius:var(--radius-sm);padding:10px 14px;
+}
+.search-bar i{color:var(--gold-bright);}
+.search-bar input{flex:1;background:transparent;border:none;outline:none;color:#fff;font-size:14px;font-weight:600;}
+.search-bar input::placeholder{color:#8ea0c2;font-weight:500;}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.tab-btn{
+  padding:12px;border-radius:var(--radius-sm);border:1.5px solid var(--silver);
+  background:rgba(255,255,255,0.04);color:#fff;font-weight:800;font-size:12.5px;
+  text-align:center;cursor:pointer;display:flex;flex-direction:column;gap:3px;
+}
+.tab-btn .count{font-size:18px;font-weight:900;}
+.tab-btn.active{background:var(--card-bg);}
+.list-wrap{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow-y:auto;padding-right:2px;}
+.list-empty{text-align:center;color:#8ea0c2;font-size:12px;padding:20px 0;}
+.row-card{
+  background:rgba(255,255,255,0.05);border:1px solid var(--silver);border-radius:12px;
+  padding:10px 12px;display:flex;flex-direction:column;gap:6px;cursor:pointer;
+}
+.row-card .row-top{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.row-card .row-id{font-weight:900;font-size:13px;color:#fff;}
+.row-card .row-sub{font-size:11px;color:var(--text-dim);word-break:break-all;}
+.row-card .row-tag{
+  font-size:9.5px;font-weight:800;padding:3px 8px;border-radius:999px;border:1px solid var(--silver);
+  color:var(--gold-bright);white-space:nowrap;
+}
+.id-card{
+  background:rgba(255,255,255,0.05);border:1.5px solid var(--silver);border-radius:14px;
+  padding:18px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;
+  transition:transform .12s ease;
+}
+.id-card:active{transform:scale(0.98);}
+.id-card .id-big{font-weight:900;font-size:20px;color:#fff;letter-spacing:0.5px;}
+.id-card .id-online{color:var(--green-on-bright);margin-right:6px;}
+.id-card .del-btn{
+  width:42px;height:42px;border-radius:10px;border:1px solid var(--red-off-bright);
+  background:rgba(255,59,78,0.12);color:#ff8a96;cursor:pointer;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.field-block{display:flex;flex-direction:column;gap:4px;}
+.field-block .f-label{font-size:11px;color:var(--text-dim);font-weight:700;text-transform:uppercase;letter-spacing:0.4px;}
+.field-row{display:flex;align-items:center;gap:8px;}
+.field-row input,.field-row textarea{
+  flex:1;background:rgba(255,255,255,0.06);border:1px solid var(--silver);border-radius:8px;
+  padding:10px 12px;color:#fff;font-size:13px;font-weight:600;outline:none;width:100%;
+}
+.field-row input:disabled{color:var(--text-dim);}
+.field-row textarea{min-height:70px;resize:vertical;}
+.pencil-btn{
+  width:36px;height:36px;border-radius:8px;border:1px solid var(--silver);background:rgba(212,175,55,0.12);
+  color:var(--gold-bright);cursor:pointer;flex-shrink:0;
+}
+.save-row{display:flex;gap:8px;}
+.btn-primary{
+  flex:1;padding:13px;border-radius:var(--radius-sm);border:1px solid var(--silver);
+  background:var(--card-bg);color:#fff;font-weight:800;font-size:13px;cursor:pointer;
+}
+.btn-secondary{
+  flex:1;padding:13px;border-radius:var(--radius-sm);border:1px solid #555;
+  background:rgba(255,255,255,0.05);color:#cdd8ec;font-weight:800;font-size:13px;cursor:pointer;
+}
+.btn-danger{
+  flex:1;padding:13px;border-radius:var(--radius-sm);border:1px solid var(--red-off-bright);
+  background:rgba(255,59,78,0.12);color:#ff8a96;font-weight:800;font-size:13px;cursor:pointer;
+}
+.stat-block{
+  background:rgba(255,255,255,0.05);border:1px solid var(--silver);border-radius:10px;
+  padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;
+}
+.stat-block .s-label{font-size:11.5px;color:var(--text-dim);font-weight:700;}
+.stat-block .s-value{font-size:14px;color:#fff;font-weight:900;text-align:right;}
+.pwreq-card{border:1px solid var(--silver);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:6px;}
+.pwreq-card .mail{font-weight:800;font-size:13px;color:#fff;word-break:break-all;}
+.chat-thread{display:flex;flex-direction:column;gap:8px;max-height:50vh;overflow-y:auto;padding:8px;}
+.msg{max-width:78%;padding:9px 12px;border-radius:14px;font-size:13px;line-height:1.35;word-break:break-word;}
+.msg.user{align-self:flex-start;background:rgba(255,255,255,0.08);border:1px solid var(--silver);}
+.msg.admin{align-self:flex-end;background:var(--card-bg);border:1px solid var(--silver);}
+.msg .ts{display:block;font-size:9px;color:#8ea0c2;margin-top:4px;}
+.chat-input-row{display:flex;gap:8px;}
+.chat-input-row input{
+  flex:1;background:rgba(255,255,255,0.06);border:1px solid var(--silver);border-radius:var(--radius-sm);
+  padding:12px;color:#fff;font-size:13px;outline:none;
+}
+.send-btn{
+  width:46px;border-radius:var(--radius-sm);border:1px solid var(--silver);background:var(--card-bg);
+  color:#fff;cursor:pointer;
+}
+#toast{
+  position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:#111;border:1px solid var(--silver);color:#fff;padding:12px 18px;border-radius:10px;
+  font-size:13px;font-weight:700;opacity:0;transition:all .25s ease;z-index:6000;max-width:90%;text-align:center;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+#toast.error{border-color:var(--red-off-bright);}
+#toast.success{border-color:var(--green-on-bright);}
+.modal-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:5500;
+  align-items:center;justify-content:center;padding:20px;
+}
+.modal-overlay.show{display:flex;}
+.modal-box{
+  background:var(--card-bg);border:1.5px solid var(--red-off-bright);border-radius:var(--radius-md);
+  padding:20px;width:100%;max-width:380px;display:flex;flex-direction:column;gap:12px;
+  max-height:86vh;overflow-y:auto;
+}
+.modal-box.neutral{border-color:var(--silver);}
+.modal-box h3{font-size:15px;font-weight:900;color:#ff8a96;}
+.modal-box.neutral h3{color:var(--gold-bright);}
+.modal-box p{font-size:12px;color:var(--text-dim);line-height:1.5;}
+.modal-box input{
+  background:rgba(255,255,255,0.06);border:1px solid var(--red-off-bright);border-radius:8px;
+  padding:12px;color:#fff;font-size:13px;outline:none;letter-spacing:4px;text-align:center;
+}
+.modal-box.neutral input{border-color:var(--silver);}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.modal-head .btn-secondary{flex:0 0 auto;width:auto;padding:8px 12px;}
+.modal-choice-row{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+#deposit-photo-img{width:100%;border-radius:10px;margin:10px 0;}
+.picker-overlay{display:none;position:fixed;inset:0;z-index:6500;background:rgba(0,0,0,0.6);align-items:flex-start;justify-content:center;}
+.picker-box{margin-top:10vh;width:90%;max-width:360px;max-height:74vh;display:flex;flex-direction:column;background:#10131a;border:1.5px solid var(--silver);border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.6);}
+.picker-head{display:flex;align-items:center;gap:8px;padding:14px 16px;border-bottom:1px solid var(--silver);}
+.picker-head span{flex:1;color:#fff;font-size:15px;font-weight:700;}
+.picker-head i{color:#fff;cursor:pointer;font-size:18px;}
+.picker-list{overflow-y:auto;padding:6px 0;}
+.picker-item{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;color:#fff;border-bottom:1px solid rgba(255,255,255,0.06);}
+.picker-item span{flex:1;font-weight:600;}
+.picker-item i{color:var(--gold-bright);}
+.picker-trigger{
+  width:100%;padding:11px;border-radius:8px;border:1px solid var(--silver);
+  background:rgba(255,255,255,0.06);color:#fff;font-weight:700;font-size:13px;
+  display:flex;align-items:center;justify-content:space-between;cursor:pointer;
+}
+.picker-trigger i{color:var(--gold-bright);}
+</style>
+</head>
+<body>
+
+<div class="intrusion-overlay" id="intrusion-overlay">
+  <div class="intrusion-box">
+    <i class="fas fa-triangle-exclamation"></i>
+    <h2>ОПИТ ЗА НЕОТОРИЗИРАН ДОСТЪП</h2>
+    <p>Някой се опитва да влезе в базата данни с грешна парола. Достъпът е заключен временно.</p>
+    <div class="timer" id="intrusion-timer">20:00</div>
+    <button onclick="Admin.dismissIntrusion()">Разбрах</button>
+  </div>
+</div>
+
+<div id="secret-screen">
+  <div class="tap-zone tap-bl" onclick="Admin.secretTap('BL')"></div>
+  <div class="tap-zone tap-br" onclick="Admin.secretTap('BR')"></div>
+  <div id="secret-reveal">
+    <div id="secret-field" onclick="Admin.armSecretField()">
+      <i class="fas fa-lock"></i>
+      <input type="password" id="secret-input" inputmode="numeric" autocomplete="off"
+             placeholder="Парола" onkeydown="if(event.key==='Enter'){Admin.tryLogin();}">
+    </div>
+    <button id="secret-confirm" onclick="Admin.tryLogin()">ОТКЛЮЧИ</button>
+    <div id="gate-err"></div>
+    <div id="gate-lockout-note"></div>
+    <div id="gate-setup-note"></div>
+  </div>
+</div>
+
+<div id="app">
+  <div id="admin-root">
+
+    <div class="view active" id="view-home">
+
+      <div class="admin-info-btn" onclick="Admin.openInfoModal()">
+        <i class="fas fa-chart-line"></i> &nbsp;ADMIN INFO
+      </div>
+
+      <div class="top-nav">
+        <div class="nav-sq" onclick="Admin.openView('users')" title="Потребители">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="nav-sq" onclick="Admin.openView('transactions')" title="Транзакции">
+          <i class="fas fa-money-bill-transfer"></i>
+          <div class="badge" id="badge-tx"></div>
+        </div>
+        <div class="nav-sq" onclick="Admin.openView('chat')" title="Поддръжка">
+          <i class="fas fa-comments"></i>
+          <div class="badge" id="badge-chat"></div>
+        </div>
+        <div class="nav-sq" onclick="Admin.openView('devices')" title="Данни">
+          <i class="fas fa-network-wired"></i>
+        </div>
+      </div>
+
+      <button class="wide-action-btn" onclick="Admin.openView('deposits')">
+        <i class="fas fa-receipt"></i> Депозити
+        <span class="badge inline" id="badge-deposits"></span>
+      </button>
+
+      <div class="section-card">
+        <div class="section-title"><i class="fas fa-server"></i> Състояние на сървъра</div>
+        <div class="srv-row"><span>Сървърно време</span><b id="srv-clock">—</b></div>
+        <div class="srv-row"><span>Часова зона</span><b>Europe/Sofia</b></div>
+        <div class="srv-row"><span>Тегления</span><b id="srv-window">—</b></div>
+        <div class="srv-row"><span>Начисляване</span><b id="srv-accrual">—</b></div>
+        <div class="srv-note">Всичко се управлява автоматично от базата данни. Няма ръчни бутони.</div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title"><i class="fas fa-layer-group"></i> Редакция на количество пакети</div>
+        <div class="picker-trigger" onclick="Admin.openPackagePicker('edit')">
+          <span id="edit-pkg-text">Избери пакет</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="field-row">
+          <input type="text" inputmode="numeric" id="edit-pkg-qty" placeholder="Оставащо количество">
+          <button class="pencil-btn" onclick="Admin.savePkgQty()"><i class="fas fa-check"></i></button>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title"><i class="fas fa-solar-panel"></i> Активиране на инвестиционен пакет</div>
+        <div class="field-row"><input type="text" id="activate-user-id" placeholder="ID на потребител"></div>
+        <div class="picker-trigger" onclick="Admin.openPackagePicker('activate')">
+          <span id="activate-pkg-text">Избери пакет</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <button class="btn-primary" onclick="Admin.activatePackageForUser()">Активирай пакета</button>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title"><i class="fas fa-key"></i> Заявки за нова парола <span class="badge inline" id="badge-pwreq"></span></div>
+        <div id="pwreq-list"></div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title"><i class="fas fa-user-lock"></i> Блокиране на акаунт</div>
+        <div class="field-row"><input type="text" id="block-user-id" placeholder="ID на потребител"></div>
+        <div class="field-row"><textarea id="block-message" placeholder="Съобщение, което потребителят ще вижда"></textarea></div>
+        <div class="save-row">
+          <button class="btn-danger" onclick="Admin.lockAccount()">Заключи акаунт</button>
+          <button class="btn-secondary" onclick="Admin.unlockAccount()">Отключи</button>
+        </div>
+      </div>
+
+      <div class="toggle-grid">
+        <div class="toggle-sq" id="tgl-promo" onclick="Admin.togglePromo()">
+          <i class="fas fa-clock"></i><span>Старт 24ч промо</span>
+        </div>
+        <div class="toggle-sq" id="tgl-legendary" onclick="Admin.toggleInfinity()">
+          <i class="fas fa-star"></i><span>Solar Legendary</span>
+        </div>
+        <div class="toggle-sq danger" onclick="Admin.openWipeGate()" title="Изтриване на базата">
+          <i class="fas fa-radiation"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="view" id="view-users">
+      <div class="view-header">
+        <div class="back-btn" onclick="Admin.openView('home')"><i class="fas fa-arrow-left"></i></div>
+        <h2>Потребители</h2>
+      </div>
+      <div class="search-bar">
+        <i class="fas fa-magnifying-glass"></i>
+        <input type="text" id="users-search" placeholder="Търси по ID, Username или Email..." oninput="Admin.renderUsersList()">
+      </div>
+      <div class="tabs">
+        <div class="tab-btn active" id="utab-premium" onclick="Admin.switchUsersTab('premium')">
+          <span>Премиум</span><span class="count" id="ucount-premium">0</span>
+        </div>
+        <div class="tab-btn" id="utab-regular" onclick="Admin.switchUsersTab('regular')">
+          <span>Обикновени</span><span class="count" id="ucount-regular">0</span>
+        </div>
+      </div>
+      <div class="list-wrap" id="users-list"><div class="list-empty">Зареждане...</div></div>
+    </div>
+
+    <div class="view" id="view-user-edit">
+      <div class="view-header">
+        <div class="back-btn" onclick="Admin.openView('users')"><i class="fas fa-arrow-left"></i></div>
+        <h2 id="ue-title">Потребител</h2>
+      </div>
+      <div id="ue-fields" style="display:flex;flex-direction:column;gap:12px;"></div>
+      <div class="save-row">
+        <button class="btn-primary" onclick="Admin.saveUserEdits()">Запази промените</button>
+      </div>
+    </div>
+
+    <div class="view" id="view-transactions">
+      <div class="view-header">
+        <div class="back-btn" onclick="Admin.openView('home')"><i class="fas fa-arrow-left"></i></div>
+        <h2>Транзакции</h2>
+      </div>
+      <div class="tabs">
+        <div class="tab-btn active" id="ttab-pending" onclick="Admin.switchTxTab('pending')">
+          <span>Неодобрени</span><span class="count" id="tcount-pending">0</span>
+        </div>
+        <div class="tab-btn" id="ttab-completed" onclick="Admin.switchTxTab('completed')">
+          <span>Одобрени</span><span class="count" id="tcount-completed">0</span>
+        </div>
+      </div>
+      <div class="list-wrap" id="tx-list"><div class="list-empty">Зареждане...</div></div>
+    </div>
+
+    <div class="view" id="view-deposits">
+      <div class="view-header">
+        <div class="back-btn" onclick="Admin.openView('home')"><i class="fas fa-arrow-left"></i></div>
+        <h2>Депозити</h2>
+      </div>
+      <div class="list-wrap" id="deposits-list"><div class="list-empty">Зареждане...</div></div>
+    </div>
+
+    <div class="view" id="view-chat">
+      <div class="view-header">
+        <div class="back-btn" onclick="Admin.openView('home')"><i class="fas fa-arrow-left"></i></div>
+        <h2>Поддръжка</h2>
+      </div>
+      <div class="tabs">
+        <div class="tab-btn active" id="ctab-unread" onclick="Admin.switchChatTab('unread')">
+          <span>Непрочетени</span><span class="count" id="ccount-unread">0</span>
+        </div>
+        <div class="tab-btn" id="ctab-read" onclick="Admin.switchChatTab('read')">
+          <span>Прочетени</span><span class="count" id="ccount-read">0</span>
+        </div>
+      </div>
+      <div class="list-wrap" id="chat-list"><div class="list-empty">Зареждане...</div></div>
+    </div>
+
+    <div class="view" id="view-chat-thread">
+      <div class="view-header">
+        <div class="back-btn" onclick="Admin.openView('chat')"><i class="fas fa-arrow-left"></i></div>
+        <h2 id="ct-title">Чат</h2>
+      </div>
+      <div class="chat-thread" id="ct-messages"></div>
+      <div class="chat-input-row">
+        <input type="text" id="ct-input" placeholder="Напиши отговор..." onkeydown="if(event.key==='Enter'){Admin.sendChatReply();}">
+        <button class="send-btn" onclick="Admin.sendChatReply()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+
+    <div class="view" id="view-devices">
+      <div class="view-header">
+        <div class="back-btn" onclick="Admin.openView('home')"><i class="fas fa-arrow-left"></i></div>
+        <h2>Данни</h2>
+      </div>
+      <div class="tabs">
+        <div class="tab-btn active" id="dtab-active" onclick="Admin.switchDevicesTab('active')">
+          <span>Активни</span><span class="count" id="dcount-active">0</span>
+        </div>
+        <div class="tab-btn" id="dtab-all" onclick="Admin.switchDevicesTab('all')">
+          <span>Всички</span><span class="count" id="dcount-all">0</span>
+        </div>
+      </div>
+      <div class="search-bar">
+        <i class="fas fa-magnifying-glass"></i>
+        <input type="text" id="devices-search" placeholder="Търси по ID..." oninput="Admin.renderDevicesList()">
+      </div>
+      <div class="list-wrap" id="devices-list"><div class="list-empty">Зареждане...</div></div>
+    </div>
+
+    <div class="view" id="view-device-detail">
+      <div class="view-header">
+        <div class="back-btn" onclick="Admin.openView('devices')"><i class="fas fa-arrow-left"></i></div>
+        <h2 id="dd-title">Данни за сесия</h2>
+      </div>
+      <div id="dd-fields" style="display:flex;flex-direction:column;gap:10px;"></div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<div class="picker-overlay" id="picker-overlay" onclick="if(event.target===this) Admin.closePicker()">
+  <div class="picker-box">
+    <div class="picker-head">
+      <span id="picker-title">Избери</span>
+      <i class="fas fa-times" onclick="Admin.closePicker()"></i>
+    </div>
+    <div class="picker-list" id="picker-list"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="admin-info-modal">
+  <div class="modal-box neutral" style="max-width:440px;">
+    <div class="modal-head">
+      <h3><i class="fas fa-chart-line"></i> ADMIN INFO</h3>
+      <div class="save-row">
+        <button class="btn-secondary" onclick="Admin.renderAdminInfo()"><i class="fas fa-rotate"></i></button>
+        <button class="btn-secondary" onclick="Admin.closeInfoModal()"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div class="admin-info-row"><span class="lbl">Активни пакети (брой)</span><span class="val" id="info-active-count">—</span></div>
+    <div class="admin-info-row"><span class="lbl">Стойност на активните пакети</span><span class="val" id="info-active-value">—</span></div>
+    <div class="admin-info-row"><span class="lbl">Общо инвестирани USDT</span><span class="val" id="info-invested">—</span></div>
+    <div class="admin-info-row"><span class="lbl">Общо изплатени USDT</span><span class="val" id="info-withdrawn">—</span></div>
+    <div class="admin-info-row"><span class="lbl">Общо чакащи тегления</span><span class="val" id="info-pending">—</span></div>
+    <div class="admin-info-row"><span class="lbl">Сума във всички акаунти</span><span class="val" id="info-balance">—</span></div>
+    <div class="admin-info-row"><span class="lbl">Нови потребители (24ч)</span><span class="val" id="info-new24h">—</span></div>
+    <div class="admin-info-row"><span class="lbl">Общо потребители</span><span class="val" id="info-totalusers">—</span></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="deposit-photo-modal">
+  <div class="modal-box neutral">
+    <h3><i class="fas fa-receipt"></i> Депозит потвърждение</h3>
+    <p id="deposit-photo-user">—</p>
+    <img id="deposit-photo-img" src="" alt="">
+    <div class="modal-choice-row">
+      <button class="btn-primary" onclick="Admin.approveDeposit()"><i class="fas fa-check"></i> &nbsp;Одобри (активирай пакет)</button>
+      <button class="btn-danger" onclick="Admin.rejectDeposit()"><i class="fas fa-times"></i> &nbsp;Отхвърли</button>
+      <button class="btn-secondary" onclick="Admin.closeModal('deposit-photo-modal')">Затвори</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="wipe-gate-modal">
+  <div class="modal-box neutral">
+    <h3><i class="fas fa-key"></i> Потвърди самоличност</h3>
+    <p>Въведи паролата за админ панела, за да продължиш.</p>
+    <input type="password" id="wipe-gate-pass" placeholder="Парола за админ панела" autocomplete="off">
+    <div class="save-row">
+      <button class="btn-secondary" onclick="Admin.closeModal('wipe-gate-modal')">Отказ</button>
+      <button class="btn-primary" onclick="Admin.confirmWipeGate()">Продължи</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="wipe-choice-modal">
+  <div class="modal-box neutral">
+    <h3><i class="fas fa-database"></i> Управление на базата данни</h3>
+    <p>Избери действие. Извличането сваля CSV файл с всички данни. Пълното изтриване иска отделна парола за изтриване.</p>
+    <div class="modal-choice-row">
+      <button class="btn-primary" onclick="Admin.exportAllData()"><i class="fas fa-file-arrow-down"></i> &nbsp;Извличане на всичко (CSV)</button>
+      <button class="btn-danger" onclick="Admin.openWipeConfirm()"><i class="fas fa-radiation"></i> &nbsp;Пълно изтриване на базата</button>
+      <button class="btn-secondary" onclick="Admin.closeModal('wipe-choice-modal')">Затвори</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="wipe-modal">
+  <div class="modal-box">
+    <h3><i class="fas fa-triangle-exclamation"></i> Изтриване на цялата база</h3>
+    <p>Това изтрива завинаги всеки потребител, транзакция и чат. Няма връщане назад. Въведи паролата за изтриване, за да продължиш.</p>
+    <input type="password" id="wipe-phrase" placeholder="Парола за изтриване" autocomplete="off">
+    <div class="save-row">
+      <button class="btn-secondary" onclick="Admin.closeModal('wipe-modal')">Отказ</button>
+      <button class="btn-danger" onclick="Admin.confirmWipe()">Изтрий всичко</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const icon = document.querySelector('link[rel="icon"]').href;
+  const manifest = {
+    name: 'Admin',
+    short_name: 'Admin',
+    start_url: location.pathname,
+    scope: location.pathname,
+    display: 'standalone',
+    background_color: '#05080f',
+    theme_color: '#05080f',
+    icons: [
+      { src: icon, sizes: '192x192', type: 'image/jpeg' },
+      { src: icon, sizes: '512x512', type: 'image/jpeg' }
+    ]
+  };
+  const add = (rel, href) => {
+    const l = document.createElement('link');
+    l.rel = rel;
+    l.href = href;
+    document.head.appendChild(l);
+  };
+  add('apple-touch-icon', icon);
+  add('manifest', URL.createObjectURL(
+    new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' })));
+})();
+
+const db = firebase.database();
+
+const PACKAGES = [
+  { id: 'solar_start',          name: 'Eco X1',     price: 30,    daily: 1.5 },
+  { id: 'sun_basic',            name: 'Eco X2',       price: 50,    daily: 2.5 },
+  { id: 'eco_plus',             name: 'Eco X3',        price: 100,   daily: 5 },
+  { id: 'green_power',          name: 'Eco X4',     price: 150,   daily: 7.5 },
+  { id: 'solar_prime',          name: 'Eco X5',     price: 250,   daily: 12.5 },
+  { id: 'energy_pro',           name: 'Eco X6',      price: 400,   daily: 24 },
+  { id: 'sun_elite',            name: 'Eco X7',       price: 750,   daily: 45 },
+  { id: 'eco_platinum',         name: 'Eco X8',    price: 1200,  daily: 72 },
+  { id: 'solar_infinity',       name: 'Eco X9',  price: 1800,  daily: 108 },
+  { id: 'green_titan',          name: 'Eco X10',     price: 3000,  daily: 210 },
+  { id: 'solar_legend',         name: 'Eco X11',    price: 8000,  daily: 640 },
+  { id: 'solar_power_infinity', name: 'MAX ECO X100', price: 20000, daily: 1700 }
+];
+
+const Admin = {
+  usersCache: {},
+  withdrawalsCache: {},
+  chatsCache: {},
+  sessionsCache: {},
+  pwReqCache: {},
+  usersTab: 'premium',
+  txTab: 'pending',
+  chatTab: 'unread',
+  devicesTab: 'active',
+  currentEditKey: null,
+  currentChatUid: null,
+  selectedEditPkg: PACKAGES[0].id,
+  selectedActivatePkg: PACKAGES[0].id,
+  lastTickAt: 0,
+  booted: false,
+  lockEnd: 0,
+  intrusionEnd: 0,
+  pickerOptions: [],
+  pickerOnSelect: null,
+  depositTargetUid: null,
+  secretSeq: [],
+  secretArmed: false,
+
+  esc(v) {
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  },
+
+  serverNow() { return window.SrvTime.now(); },
+
+  fmt(n) {
+    const v = parseFloat(n || 0) || 0;
+    return v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' USDT';
+  },
+
+  dt(ms) {
+    const n = Number(ms);
+    return (n > 0) ? new Date(n).toLocaleString('bg-BG') : '—';
+  },
+
+  toast(msg, type) {
+    const t = document.getElementById('toast');
+    t.innerText = msg;
+    t.className = 'show' + (type ? ' ' + type : '');
+    if (Admin._toastTimer) clearTimeout(Admin._toastTimer);
+    Admin._toastTimer = setTimeout(() => { t.className = ''; }, 2600);
+  },
+
+  errText(e) {
+    return (e && e.message) ? e.message : 'неизвестна грешка';
+  },
+
+  closeModal(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('show');
+  },
+
+  updateBadge(id, count) {
+    const b = document.getElementById(id);
+    if (!b) return;
+    if (count > 0) { b.style.display = 'flex'; b.innerText = count > 99 ? '99+' : count; }
+    else b.style.display = 'none';
+  },
+
+  LEGACY: {
+    'Solar Start': 'Eco X1',
+    'Sun Basic': 'Eco X2',
+    'Eco Plus': 'Eco X3',
+    'Green Power': 'Eco X4',
+    'Solar Prime': 'Eco X5',
+    'Energy Pro': 'Eco X6',
+    'Sun Elite': 'Eco X7',
+    'Eco Platinum': 'Eco X8',
+    'Solar Infinity': 'Eco X9',
+    'Green Titan': 'Eco X10',
+    'Solar Legend': 'Eco X11',
+    'Solar Legendary': 'MAX ECO X100'
+  },
+
+  findPackage(idOrName) {
+    const q = String(idOrName || '');
+    const key = Admin.LEGACY[q] || q;
+    return PACKAGES.find(p => p.id === key || p.name === key) || null;
+  },
+
+  secretTap(corner) {
+    if (this.secretArmed) return;
+    const target = ['BL', 'BR', 'BR', 'BL'];
+    this.secretSeq.push(corner);
+    if (this.secretSeq.length > target.length) this.secretSeq = this.secretSeq.slice(-target.length);
+    if (this.secretSeq.length === target.length && this.secretSeq.every((c, i) => c === target[i])) {
+      this.secretArmed = true;
+      document.getElementById('secret-reveal').classList.add('show');
+      Admin.refreshGateStatus();
+    }
+  },
+
+  armSecretField() {
+    document.getElementById('secret-field').classList.add('armed');
+    document.getElementById('secret-input').focus();
+  },
+
+  async refreshGateStatus() {
+    try {
+      const r = await window.SUPABASE.rpc('admin_gate_status');
+      if (r.error) throw r.error;
+      Admin.applyGate(r.data || {});
+    } catch (e) {
+      document.getElementById('gate-err').innerText = 'Няма връзка с базата данни.';
+    }
+  },
+
+  applyGate(gate) {
+    const setup = document.getElementById('gate-setup-note');
+    if (gate.configured === false) {
+      setup.innerHTML = 'Няма зададена админ парола. Задай я в таблицата <b>rtdb</b>, ред <b>admin_config</b>, поле <b>password</b>.';
+    } else {
+      setup.innerText = '';
+    }
+    if (gate.lockedMs > 0) Admin.showLockout(gate.lockedMs);
+  },
+
+  async tryLogin() {
+    const input = document.getElementById('secret-input');
+    const errEl = document.getElementById('gate-err');
+    const btn = document.getElementById('secret-confirm');
+    const pass = input.value.trim();
+    errEl.innerText = '';
+
+    if (Admin.lockEnd > Admin.serverNow()) {
+      Admin.showLockout(Admin.lockEnd - Admin.serverNow());
+      return;
+    }
+    if (!pass) { errEl.innerText = 'Въведи паролата.'; return; }
+
+    btn.disabled = true;
+    btn.innerText = 'Проверка...';
+    try {
+      const r = await window.SUPABASE.rpc('admin_login', { p_pass: pass });
+      if (r.error) throw r.error;
+      const res = r.data || {};
+
+      if (res.ok) {
+        input.value = '';
+        sessionStorage.setItem('adminUnlocked', '1');
+        Admin.enterPanel();
+        return;
+      }
+
+      input.value = '';
+      Admin.applyGate(res);
+      if (res.lockedMs > 0) {
+        Admin.showIntrusionAlert(res.lockedMs);
+      } else if (res.configured === false) {
+        errEl.innerText = 'Админ достъпът все още не е конфигуриран.';
+      } else {
+        errEl.innerText = 'Грешна парола. Оставащи опити: ' + res.remaining + '.';
+      }
+    } catch (e) {
+      errEl.innerText = 'Няма връзка с базата данни. Провери интернета.';
+    } finally {
+      if (Admin.lockEnd <= Admin.serverNow()) {
+        btn.disabled = false;
+        btn.innerText = 'ОТКЛЮЧИ';
+      }
+    }
+  },
+
+  showLockout(ms) {
+    const btn = document.getElementById('secret-confirm');
+    const note = document.getElementById('gate-lockout-note');
+    Admin.lockEnd = Admin.serverNow() + ms;
+    btn.disabled = true;
+    if (Admin.lockoutTimer) clearInterval(Admin.lockoutTimer);
+    const tick = () => {
+      const left = Math.max(0, Math.round((Admin.lockEnd - Admin.serverNow()) / 1000));
+      const mm = String(Math.floor(left / 60)).padStart(2, '0');
+      const ss = String(left % 60).padStart(2, '0');
+      note.innerText = 'Заключено. Опитай отново след ' + mm + ':' + ss;
+      if (left <= 0) {
+        clearInterval(Admin.lockoutTimer);
+        Admin.lockoutTimer = null;
+        Admin.lockEnd = 0;
+        note.innerText = '';
+        btn.disabled = false;
+        btn.innerText = 'ОТКЛЮЧИ';
+      }
+    };
+    tick();
+    Admin.lockoutTimer = setInterval(tick, 1000);
+  },
+
+  showIntrusionAlert(ms) {
+    const overlay = document.getElementById('intrusion-overlay');
+    const timerEl = document.getElementById('intrusion-timer');
+    Admin.intrusionEnd = Admin.serverNow() + ms;
+    overlay.classList.add('show');
+    if (Admin.intrusionTimer) clearInterval(Admin.intrusionTimer);
+    const tick = () => {
+      const left = Math.max(0, Math.round((Admin.intrusionEnd - Admin.serverNow()) / 1000));
+      const mm = String(Math.floor(left / 60)).padStart(2, '0');
+      const ss = String(left % 60).padStart(2, '0');
+      timerEl.innerText = mm + ':' + ss;
+      if (left <= 0) { clearInterval(Admin.intrusionTimer); Admin.intrusionTimer = null; }
+    };
+    tick();
+    Admin.intrusionTimer = setInterval(tick, 1000);
+  },
+
+  dismissIntrusion() {
+    document.getElementById('intrusion-overlay').classList.remove('show');
+  },
+
+  enterPanel() {
+    document.getElementById('secret-screen').classList.remove('show');
+    document.getElementById('admin-root').style.display = 'flex';
+    Admin.boot();
+  },
+
+  async start() {
+    if (sessionStorage.getItem('adminUnlocked') === '1') {
+      Admin.enterPanel();
+      return;
+    }
+    document.getElementById('secret-screen').classList.add('show');
+    Admin.refreshGateStatus();
+  },
+
+  boot() {
+    if (Admin.booted) return;
+    Admin.booted = true;
+    Admin.listenUsers();
+    Admin.listenWithdrawals();
+    Admin.listenChats();
+    Admin.listenSessions();
+    Admin.listenSettings();
+    Admin.listenPasswordRequests();
+    Admin.setPackageLabel('edit', PACKAGES[0]);
+    Admin.setPackageLabel('activate', PACKAGES[0]);
+    Admin.loadPkgQty();
+    Admin.renderServerStatus();
+    if (Admin.clockTimer) clearInterval(Admin.clockTimer);
+    Admin.clockTimer = setInterval(() => Admin.renderServerStatus(), 1000);
+  },
+
+  renderServerStatus() {
+    const clock = document.getElementById('srv-clock');
+    if (!clock) return;
+    if (!window.SrvTime.info) { clock.innerText = 'свързване…'; return; }
+
+    const now = window.SrvTime.now();
+    clock.innerText = new Intl.DateTimeFormat('bg-BG', {
+      timeZone: 'Europe/Sofia', day: '2-digit', month: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+    }).format(new Date(now));
+
+    const win = document.getElementById('srv-window');
+    const open = window.sofiaIsWithdrawWindow(now);
+    win.innerText = open ? 'ОТВОРЕНИ' : 'ЗАКЛЮЧЕНИ';
+    win.className = open ? 'ok' : 'no';
+
+    const acc = document.getElementById('srv-accrual');
+    const age = Admin.lastTickAt ? Math.round((now - Admin.lastTickAt) / 1000) : null;
+    acc.innerText = (age === null) ? 'изчаква' : ('активно · преди ' + age + ' сек');
+    acc.className = 'ok';
+  },
+
+  listenUsers() {
+    db.ref('users').on('value', snap => {
+      Admin.usersCache = snap.exists() ? (snap.val() || {}) : {};
+      Admin.renderUsersList();
+      Admin.renderAdminInfo();
+      const pendingDep = Object.values(Admin.usersCache)
+        .filter(u => u && u.deposit && u.deposit.status === 'pending').length;
+      Admin.updateBadge('badge-deposits', pendingDep);
+      if (document.getElementById('view-deposits').classList.contains('active')) Admin.renderDepositsList();
+    });
+  },
+
+  listenWithdrawals() {
+    db.ref('withdrawals').on('value', snap => {
+      Admin.withdrawalsCache = snap.exists() ? (snap.val() || {}) : {};
+      Admin.renderTxList();
+      Admin.renderAdminInfo();
+      Admin.updateBadge('badge-tx',
+        Object.values(Admin.withdrawalsCache).filter(w => (w.status || 'pending') === 'pending').length);
+    });
+  },
+
+  listenChats() {
+    db.ref('support_chats').on('value', snap => {
+      Admin.chatsCache = snap.exists() ? (snap.val() || {}) : {};
+      Admin.renderChatList();
+      if (Admin.currentChatUid && document.getElementById('view-chat-thread').classList.contains('active')) {
+        Admin.renderChatMessages(Admin.currentChatUid);
+      }
+      const unread = Object.values(Admin.chatsCache)
+        .filter(c => (c.lastTime || 0) > (c.adminRead || 0)).length;
+      Admin.updateBadge('badge-chat', unread);
+    });
+  },
+
+  listenSessions() {
+    db.ref('user_sessions').on('value', snap => {
+      Admin.sessionsCache = snap.exists() ? (snap.val() || {}) : {};
+      Admin.renderDevicesList();
+    });
+  },
+
+  listenPasswordRequests() {
+    db.ref('password_requests').on('value', snap => {
+      Admin.pwReqCache = snap.exists() ? (snap.val() || {}) : {};
+      Admin.renderPasswordRequests();
+    });
+  },
+
+  listenSettings() {
+    db.ref('settings').on('value', snap => {
+      const s = snap.exists() ? (snap.val() || {}) : {};
+      document.getElementById('tgl-promo').classList.toggle('on', !!(s.promo && s.promo.isActive));
+      document.getElementById('tgl-legendary').classList.toggle('on', s.solarInfinityEnabled === true);
+      Admin.stock = s.stock || {};
+      Admin.lastTickAt = s.lastTickAt || 0;
+      Admin.renderServerStatus();
+      Admin.loadPkgQty();
+    });
+  },
+
+  openView(name) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById('view-' + name).classList.add('active');
+    window.scrollTo(0, 0);
+    if (name === 'users') Admin.renderUsersList();
+    if (name === 'transactions') Admin.renderTxList();
+    if (name === 'deposits') Admin.renderDepositsList();
+    if (name === 'chat') Admin.renderChatList();
+    if (name === 'devices') Admin.renderDevicesList();
+  },
+
+  openInfoModal() {
+    document.getElementById('admin-info-modal').classList.add('show');
+    Admin.renderAdminInfo();
+  },
+
+  closeInfoModal() {
+    document.getElementById('admin-info-modal').classList.remove('show');
+  },
+
+  renderAdminInfo() {
+    const users = Admin.usersCache || {};
+    const withdrawals = Admin.withdrawalsCache || {};
+    let totalInvested = 0, totalBalance = 0, newUsers24h = 0, totalUsers = 0;
+    let activeCount = 0, activeValue = 0;
+    const dayAgo = Admin.serverNow() - 24 * 60 * 60 * 1000;
+
+    Object.values(users).forEach(u => {
+      if (!u) return;
+      totalUsers++;
+      totalBalance += parseFloat(u.balance || 0);
+      if (u.createdAt && u.createdAt >= dayAgo) newUsers24h++;
+      if (u.activePackage && u.activePackage !== 'none') {
+        activeCount++;
+        const price = parseFloat(u.packagePrice || u.investedAmount || 0);
+        activeValue += price;
+        totalInvested += price;
+      }
+      const extras = u.extraPackages || {};
+      for (const k in extras) {
+        const p = parseFloat(extras[k].price || 0);
+        activeValue += p;
+        totalInvested += p;
+      }
+    });
+
+    let totalWithdrawn = 0, pendingAmount = 0;
+    Object.values(withdrawals).forEach(w => {
+      const amt = parseFloat(w.netAmount || w.amount || 0);
+      if ((w.status || 'pending') === 'completed') totalWithdrawn += amt;
+      else pendingAmount += amt;
+    });
+
+    const set = (id, val) => { document.getElementById(id).innerText = val; };
+    set('info-active-count', activeCount);
+    set('info-active-value', Admin.fmt(activeValue));
+    set('info-invested', Admin.fmt(totalInvested));
+    set('info-withdrawn', Admin.fmt(totalWithdrawn));
+    set('info-pending', Admin.fmt(pendingAmount));
+    set('info-balance', Admin.fmt(totalBalance));
+    set('info-new24h', newUsers24h);
+    set('info-totalusers', totalUsers);
+  },
+
+  switchUsersTab(tab) {
+    Admin.usersTab = tab;
+    document.getElementById('utab-premium').classList.toggle('active', tab === 'premium');
+    document.getElementById('utab-regular').classList.toggle('active', tab === 'regular');
+    Admin.renderUsersList();
+  },
+
+  renderUsersList() {
+    const list = document.getElementById('users-list');
+    if (!list) return;
+    const q = (document.getElementById('users-search').value || '').toLowerCase().trim();
+    const entries = Object.entries(Admin.usersCache || {}).filter(([, u]) => !!u);
+
+    const premium = entries.filter(([, u]) => u.activePackage && u.activePackage !== 'none');
+    const regular = entries.filter(([, u]) => !u.activePackage || u.activePackage === 'none');
+
+    document.getElementById('ucount-premium').innerText = premium.length;
+    document.getElementById('ucount-regular').innerText = regular.length;
+
+    let source = (Admin.usersTab === 'premium') ? premium : regular;
+    if (q) {
+      source = source.filter(([k, u]) =>
+        String(u.myCode || k).toLowerCase().includes(q) ||
+        String(u.username || '').toLowerCase().includes(q) ||
+        String(u.email || '').toLowerCase().includes(q));
+    }
+
+    if (!source.length) { list.innerHTML = '<div class="list-empty">Няма намерени потребители.</div>'; return; }
+
+    list.innerHTML = source.map(([key, u]) =>
+      '<div class="id-card" onclick="Admin.openUserEdit(\'' + Admin.esc(key) + '\')">' +
+        '<div style="display:flex;flex-direction:column;gap:2px;min-width:0;text-align:left;">' +
+          '<span class="id-big">' + Admin.esc(u.myCode || key) + '</span>' +
+          '<span class="row-sub">' + Admin.esc(u.username || '—') +
+            (u.email ? ' &middot; ' + Admin.esc(u.email) : '') + '</span>' +
+        '</div>' +
+        '<i class="fas fa-chevron-right" style="color:var(--gold-bright);"></i>' +
+      '</div>').join('');
+  },
+
+  openUserEdit(key) {
+    const u = (Admin.usersCache || {})[key];
+    if (!u) return Admin.toast('Потребителят не е намерен.', 'error');
+    Admin.currentEditKey = key;
+    document.getElementById('ue-title').innerText = 'ID: ' + (u.myCode || key);
+
+    let totalWithdrawn = 0;
+    Object.values(u.withdrawals || {}).forEach(w => {
+      if (w.status === 'completed') totalWithdrawn += parseFloat(w.amount || w.netAmount || 0);
+    });
+
+    const field = (label, id, val, editable) =>
+      '<div class="field-block">' +
+        '<span class="f-label">' + label + '</span>' +
+        '<div class="field-row">' +
+          '<input type="text" id="' + id + '" value="' + Admin.esc(val) + '"' +
+            (editable ? ' data-key="' + id.replace('ue-field-', '') + '"' : '') + ' disabled>' +
+          (editable ? '<button class="pencil-btn" onclick="Admin.unlockField(\'' + id + '\')"><i class="fas fa-pencil"></i></button>' : '') +
+        '</div>' +
+      '</div>';
+
+    document.getElementById('ue-fields').innerHTML =
+      field('Крипто адрес за теглене', 'ue-field-cryptoAddress', u.cryptoAddress || '', true) +
+      '<div class="stat-block"><span class="s-label">Общо изтеглени пари</span><span class="s-value">' + Admin.fmt(totalWithdrawn) + '</span></div>' +
+      '<div class="stat-block"><span class="s-label">Налично за теглене</span><span class="s-value">' + Admin.fmt(u.balance) + '</span></div>' +
+      '<div class="stat-block"><span class="s-label">Дата на регистрация</span><span class="s-value" style="font-size:12.5px;">' + Admin.dt(u.createdAt) + '</span></div>' +
+      field('Баланс', 'ue-field-balance', u.balance || 0, true) +
+      field('Username', 'ue-field-username', u.username || '', true) +
+      field('Email', 'ue-field-email', u.email || '', true) +
+      field('Парола', 'ue-field-password', u.password || '', true) +
+      field('ПИН за теглене', 'ue-field-withdrawPin', u.withdrawPin || '', true) +
+      field('Използван код за покана', 'ue-invite-used', u.inviteCodeUsed || '', false);
+
+    Admin.openView('user-edit');
+  },
+
+  unlockField(id) {
+    const el = document.getElementById(id);
+    el.disabled = false;
+    el.focus();
+  },
+
+  async saveUserEdits() {
+    const key = Admin.currentEditKey;
+    if (!key) return;
+    const updates = {};
+    document.querySelectorAll('#ue-fields input[data-key]').forEach(input => {
+      const k = input.dataset.key;
+      updates[k] = (k === 'balance') ? (parseFloat(input.value) || 0) : input.value.trim();
+    });
+    if (updates.balance < 0) return Admin.toast('Балансът не може да е отрицателен.', 'error');
+    try {
+      await db.ref('users/' + key).update(updates);
+      Admin.toast('Промените са запазени.', 'success');
+    } catch (e) {
+      Admin.toast('Промените не бяха запазени: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  findUserKeyByCode(code) {
+    const users = Admin.usersCache || {};
+    const q = String(code || '').trim();
+    if (!q) return null;
+    for (const key in users) {
+      const u = users[key] || {};
+      if (key === q) return key;
+      if (String(u.myCode || '') === q) return key;
+      if (String(u.username || '').toLowerCase() === q.toLowerCase()) return key;
+      if (String(u.email || '').toLowerCase() === q.toLowerCase()) return key;
+    }
+    return null;
+  },
+
+  async resolveUserKey(code) {
+    let key = Admin.findUserKeyByCode(code);
+    if (key) return key;
+    try {
+      const snap = await db.ref('users').get();
+      if (snap.exists()) {
+        Admin.usersCache = snap.val() || {};
+        key = Admin.findUserKeyByCode(code);
+      }
+    } catch (e) {
+      Admin.toast('Няма връзка с базата.', 'error');
+      return null;
+    }
+    return key;
+  },
+
+  async lockAccount() {
+    const idVal = document.getElementById('block-user-id').value.trim();
+    const msg = document.getElementById('block-message').value.trim();
+    if (!idVal) return Admin.toast('Въведи ID на потребител.', 'error');
+    const key = await Admin.resolveUserKey(idVal);
+    if (!key) return Admin.toast('Няма потребител с ID ' + idVal + '.', 'error');
+    try {
+      await db.ref('users/' + key).update({
+        accountLocked: true,
+        accountLockMessage: msg || 'Your account has been locked. Please contact support.'
+      });
+      Admin.toast('Акаунтът е заключен.', 'success');
+      document.getElementById('block-user-id').value = '';
+      document.getElementById('block-message').value = '';
+    } catch (e) {
+      Admin.toast('Заключването не мина: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  async unlockAccount() {
+    const idVal = document.getElementById('block-user-id').value.trim();
+    if (!idVal) return Admin.toast('Въведи ID на потребител.', 'error');
+    const key = await Admin.resolveUserKey(idVal);
+    if (!key) return Admin.toast('Няма потребител с ID ' + idVal + '.', 'error');
+    try {
+      await db.ref('users/' + key).update({ accountLocked: false, accountLockMessage: '' });
+      Admin.toast('Акаунтът е отключен.', 'success');
+      document.getElementById('block-user-id').value = '';
+      document.getElementById('block-message').value = '';
+    } catch (e) {
+      Admin.toast('Грешка при отключване: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  renderPasswordRequests() {
+    const box = document.getElementById('pwreq-list');
+    const all = Object.entries(Admin.pwReqCache || {})
+      .filter(([, r]) => r && r.status === 'pending')
+      .sort((a, b) => (b[1].createdAt || 0) - (a[1].createdAt || 0));
+
+    Admin.updateBadge('badge-pwreq', all.length);
+    if (!all.length) {
+      box.innerHTML = '<div class="row-sub" style="opacity:.6;font-size:11px;color:var(--text-dim);">Няма чакащи заявки.</div>';
+      return;
+    }
+    box.innerHTML = all.map(([id, r]) =>
+      '<div class="pwreq-card">' +
+        '<div class="mail">' + Admin.esc(r.email) + '</div>' +
+        '<div class="row-sub" style="font-size:11px;color:var(--text-dim);">' +
+          (r.userKey ? 'ID ' + Admin.esc(r.userKey) : 'няма такъв акаунт') + ' &middot; ' + Admin.dt(r.createdAt) +
+        '</div>' +
+        '<button class="btn-secondary" onclick="Admin.resolvePwRequest(\'' + Admin.esc(id) + '\')">Обработена</button>' +
+      '</div>').join('');
+  },
+
+  async resolvePwRequest(id) {
+    try {
+      await db.ref('password_requests/' + id + '/status').set('done');
+      Admin.toast('Заявката е обработена.', 'success');
+    } catch (e) {
+      Admin.toast('Грешка при записа: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  switchTxTab(tab) {
+    Admin.txTab = tab;
+    document.getElementById('ttab-pending').classList.toggle('active', tab === 'pending');
+    document.getElementById('ttab-completed').classList.toggle('active', tab === 'completed');
+    Admin.renderTxList();
+  },
+
+  renderTxList() {
+    const list = document.getElementById('tx-list');
+    if (!list) return;
+    const all = Object.entries(Admin.withdrawalsCache || {}).map(([id, w]) => Object.assign({ id }, w));
+    const pending = all.filter(w => (w.status || 'pending') === 'pending');
+    const completed = all.filter(w => (w.status || 'pending') === 'completed');
+
+    document.getElementById('tcount-pending').innerText = pending.length;
+    document.getElementById('tcount-completed').innerText = completed.length;
+
+    const source = (Admin.txTab === 'pending' ? pending : completed)
+      .sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+    if (!source.length) { list.innerHTML = '<div class="list-empty">Няма транзакции тук.</div>'; return; }
+
+    list.innerHTML = source.map(w =>
+      '<div class="row-card" style="cursor:default;">' +
+        '<div class="row-top">' +
+          '<span class="row-id">ID: ' + Admin.esc(w.userCode || w.userKey || '—') + '</span>' +
+          '<span class="row-tag">' + Admin.fmt(w.netAmount || w.amount) + '</span>' +
+        '</div>' +
+        '<span class="row-sub">' + Admin.esc(w.cryptoAddress || '') + '</span>' +
+        '<span class="row-sub">' + Admin.dt(w.timestamp) + '</span>' +
+        (Admin.txTab === 'pending'
+          ? '<div class="save-row" style="margin-top:4px;"><button class="btn-primary" style="padding:9px;font-size:11px;" ' +
+            'onclick="Admin.approveTx(\'' + Admin.esc(w.id) + '\',\'' + Admin.esc(w.userKey || '') + '\')">Одобри</button></div>'
+          : '') +
+      '</div>').join('');
+  },
+
+  async approveTx(id, userKey) {
+    try {
+      await db.ref('withdrawals/' + id).update({ status: 'completed' });
+      if (userKey) await db.ref('users/' + userKey + '/withdrawals/' + id).update({ status: 'completed' });
+      Admin.toast('Транзакцията е одобрена.', 'success');
+    } catch (e) {
+      Admin.toast('Транзакцията не бе одобрена: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  renderDepositsList() {
+    const list = document.getElementById('deposits-list');
+    if (!list) return;
+    const pending = Object.entries(Admin.usersCache || {})
+      .filter(([, u]) => u && u.deposit && u.deposit.status === 'pending');
+    if (!pending.length) { list.innerHTML = '<div class="list-empty">Няма чакащи депозити.</div>'; return; }
+
+    list.innerHTML = pending.map(([uid, u]) =>
+      '<div class="row-card" onclick="Admin.openDepositPhoto(\'' + Admin.esc(uid) + '\')">' +
+        '<div class="row-top">' +
+          '<span class="row-id">ID: ' + Admin.esc(u.myCode || uid) + '</span>' +
+          '<span class="row-tag">' + Admin.esc(u.deposit.packageName || 'Депозит') + '</span>' +
+        '</div>' +
+        '<span class="row-sub">' + Admin.esc(u.username || u.email || '') + '</span>' +
+        '<span class="row-sub">' + Admin.dt(u.deposit.submittedAt) + '</span>' +
+      '</div>').join('');
+  },
+
+  openDepositPhoto(uid) {
+    const u = (Admin.usersCache || {})[uid];
+    if (!u || !u.deposit) return;
+    Admin.depositTargetUid = uid;
+    const pkg = u.deposit.packageName ? ('  ·  ' + u.deposit.packageName) : '';
+    document.getElementById('deposit-photo-user').innerText =
+      (u.username || u.email || '') + '  (ID: ' + (u.myCode || uid) + ')' + pkg;
+    document.getElementById('deposit-photo-img').src = u.deposit.photo || '';
+    document.getElementById('deposit-photo-modal').classList.add('show');
+  },
+
+  async approveDeposit() {
+    const uid = Admin.depositTargetUid;
+    if (!uid) return;
+    const u = (Admin.usersCache || {})[uid];
+    if (!u || !u.deposit) return;
+    try {
+      const updates = { 'deposit/status': 'approved' };
+      const pkg = Admin.findPackage(u.deposit.packageName);
+      if (pkg) {
+        if (u.activePackage && u.activePackage !== 'none') {
+          updates['extraPackages/pkg_' + Admin.serverNow()] = {
+            name: pkg.name,
+            daily: pkg.daily,
+            price: pkg.price,
+            activatedAt: firebase.database.ServerValue.TIMESTAMP
+          };
+        } else {
+          updates.activePackage = pkg.name;
+          updates.dailyProfit = pkg.daily;
+          updates.packagePrice = pkg.price;
+          updates.investedAmount = pkg.price;
+          updates.packageActivatedAt = firebase.database.ServerValue.TIMESTAMP;
+        }
+      }
+      await db.ref('users/' + uid).update(updates);
+      Admin.toast('Депозитът е одобрен, пакетът е активиран.', 'success');
+      Admin.closeModal('deposit-photo-modal');
+    } catch (e) {
+      Admin.toast('Грешка при одобрение: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  async rejectDeposit() {
+    const uid = Admin.depositTargetUid;
+    if (!uid) return;
+    try {
+      await db.ref('users/' + uid + '/deposit/status').set('rejected');
+      Admin.toast('Депозитът е отхвърлен.', 'success');
+      Admin.closeModal('deposit-photo-modal');
+    } catch (e) {
+      Admin.toast('Грешка при отхвърляне: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  switchChatTab(tab) {
+    Admin.chatTab = tab;
+    document.getElementById('ctab-unread').classList.toggle('active', tab === 'unread');
+    document.getElementById('ctab-read').classList.toggle('active', tab === 'read');
+    Admin.renderChatList();
+  },
+
+  renderChatList() {
+    const list = document.getElementById('chat-list');
+    if (!list) return;
+    const all = Object.entries(Admin.chatsCache || {}).map(([uid, c]) => Object.assign({ uid }, c));
+    const unread = all.filter(c => (c.lastTime || 0) > (c.adminRead || 0));
+    const read = all.filter(c => (c.lastTime || 0) <= (c.adminRead || 0));
+
+    document.getElementById('ccount-unread').innerText = unread.length;
+    document.getElementById('ccount-read').innerText = read.length;
+
+    const source = (Admin.chatTab === 'unread' ? unread : read)
+      .sort((a, b) => (b.lastTime || 0) - (a.lastTime || 0));
+    if (!source.length) { list.innerHTML = '<div class="list-empty">Няма чатове тук.</div>'; return; }
+
+    list.innerHTML = source.map(c => {
+      const msg = String(c.lastMessage || '');
+      return '<div class="row-card" onclick="Admin.openChatThread(\'' + Admin.esc(c.uid) + '\')">' +
+        '<div class="row-top">' +
+          '<span class="row-id">ID: ' + Admin.esc(c.myCode || c.uid) + '</span>' +
+          '<span class="row-sub">' + Admin.dt(c.lastTime) + '</span>' +
+        '</div>' +
+        '<span class="row-sub">' + Admin.esc(msg.substring(0, 50)) + (msg.length > 50 ? '…' : '') + '</span>' +
+      '</div>';
+    }).join('');
+  },
+
+  openChatThread(uid) {
+    Admin.currentChatUid = uid;
+    const c = (Admin.chatsCache || {})[uid] || {};
+    document.getElementById('ct-title').innerText = 'ID: ' + (c.myCode || uid);
+    Admin.openView('chat-thread');
+    Admin.renderChatMessages(uid);
+    db.ref('support_chats/' + uid).update({ adminRead: Admin.serverNow() }).catch(() => {});
+  },
+
+  renderChatMessages(uid) {
+    const c = (Admin.chatsCache || {})[uid] || {};
+    const box = document.getElementById('ct-messages');
+    const msgs = Object.values(c.messages || {}).sort((a, b) => (a.time || 0) - (b.time || 0));
+    if (!msgs.length) { box.innerHTML = '<div class="list-empty">Все още няма съобщения.</div>'; return; }
+    box.innerHTML = msgs.map(m => {
+      const isAdmin = (m.from === 'admin') || (m.sender === 'admin');
+      const t = Number(m.time) > 0 ? new Date(Number(m.time)).toLocaleTimeString('bg-BG') : '';
+      return '<div class="msg ' + (isAdmin ? 'admin' : 'user') + '">' +
+        Admin.esc(m.text) + '<span class="ts">' + t + '</span></div>';
+    }).join('');
+    box.scrollTop = box.scrollHeight;
+  },
+
+  async sendChatReply() {
+    const uid = Admin.currentChatUid;
+    const input = document.getElementById('ct-input');
+    const text = input.value.trim();
+    if (!uid || !text) return;
+    const now = Admin.serverNow();
+    try {
+      await db.ref('support_chats/' + uid + '/messages').push({ from: 'admin', sender: 'admin', text: text, time: now });
+      await db.ref('support_chats/' + uid).update({ lastMessage: text, lastTime: now, adminRead: now });
+      input.value = '';
+    } catch (e) {
+      Admin.toast('Отговорът не бе изпратен: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  switchDevicesTab(tab) {
+    Admin.devicesTab = tab;
+    document.getElementById('dtab-active').classList.toggle('active', tab === 'active');
+    document.getElementById('dtab-all').classList.toggle('active', tab === 'all');
+    Admin.renderDevicesList();
+  },
+
+  renderDevicesList() {
+    const list = document.getElementById('devices-list');
+    if (!list) return;
+    const tab = Admin.devicesTab;
+    const q = (document.getElementById('devices-search').value || '').toLowerCase().trim();
+    const entries = Object.entries(Admin.sessionsCache || {}).filter(([, s]) => !!s);
+
+    const now = Admin.serverNow();
+    const activeEntries = entries.filter(([, s]) => s.lastSeen && (now - s.lastSeen) < 2 * 60 * 1000);
+
+    document.getElementById('dcount-active').innerText = activeEntries.length;
+    document.getElementById('dcount-all').innerText = entries.length;
+
+    let source = (tab === 'active') ? activeEntries : entries;
+    if (q) source = source.filter(([uid, s]) => String(s.myCode || uid).toLowerCase().includes(q));
+
+    if (!source.length) {
+      list.innerHTML = '<div class="list-empty">' +
+        (tab === 'active' ? 'В момента няма онлайн потребители.' : 'Все още няма записани сесии.') + '</div>';
+      return;
+    }
+
+    const dot = (tab === 'active') ? '<span class="id-online">●</span>' : '';
+    list.innerHTML = source.map(([uid, s]) =>
+      '<div class="id-card">' +
+        '<span class="id-big" style="flex:1;" onclick="Admin.openDeviceDetail(\'' + Admin.esc(uid) + '\')">' +
+          dot + Admin.esc(s.myCode || uid) + '</span>' +
+        '<button class="del-btn" onclick="event.stopPropagation();Admin.deleteSession(\'' + Admin.esc(uid) + '\')">' +
+          '<i class="fas fa-trash"></i></button>' +
+      '</div>').join('');
+  },
+
+  deleteSession(uid) {
+    const s = (Admin.sessionsCache || {})[uid] || {};
+    if (!confirm('Да изтрия ли записа за сесия на ID ' + (s.myCode || uid) +
+                 '? Това маха само данните за сесия/устройство, не самия потребител.')) return;
+    db.ref('user_sessions/' + uid).remove()
+      .then(() => Admin.toast('Записът за сесия е изтрит.', 'success'))
+      .catch(e => Admin.toast('Записът не бе изтрит: ' + Admin.errText(e), 'error'));
+  },
+
+  openDeviceDetail(uid) {
+    const s = (Admin.sessionsCache || {})[uid] || {};
+    document.getElementById('dd-title').innerText = 'ID: ' + (s.myCode || uid);
+    const rows = [
+      ['IP адрес', s.ip],
+      ['Приблизителна локация (град / държава)', [s.city, s.region, s.country].filter(Boolean).join(', ')],
+      ['Браузър', s.browser],
+      ['Операционна система', s.os],
+      ['Устройство', s.device],
+      ['Информация за браузъра (User-Agent)', s.userAgent],
+      ['Език на браузъра', s.language],
+      ['Часова зона', s.timezone],
+      ['Размер на екрана', s.screen],
+      ['Последна активност (раздел)', s.lastActivity],
+      ['Време на последна активност', Admin.dt(s.lastActivityTime)],
+      ['Активност в сайта (последни действия)', s.activityLog],
+      ['Последно видян', Admin.dt(s.lastSeen)]
+    ];
+    document.getElementById('dd-fields').innerHTML = rows.map(([label, value]) =>
+      '<div class="field-block">' +
+        '<span class="f-label">' + label + '</span>' +
+        '<div class="field-row"><input type="text" value="' + Admin.esc(value || '—') + '" disabled></div>' +
+      '</div>').join('');
+    Admin.openView('device-detail');
+  },
+
+  openPicker(title, options, onSelect) {
+    Admin.pickerOptions = options;
+    Admin.pickerOnSelect = onSelect;
+    document.getElementById('picker-title').innerText = title;
+    document.getElementById('picker-list').innerHTML = options.map((o, i) =>
+      '<div class="picker-item" onclick="Admin.pickerChoose(' + i + ')">' +
+        '<span>' + Admin.esc(o.label) + '</span><i class="fas fa-chevron-right"></i></div>').join('');
+    document.getElementById('picker-overlay').style.display = 'flex';
+  },
+
+  pickerChoose(i) {
+    const o = Admin.pickerOptions[i];
+    Admin.closePicker();
+    if (o && Admin.pickerOnSelect) Admin.pickerOnSelect(o.value);
+  },
+
+  closePicker() {
+    document.getElementById('picker-overlay').style.display = 'none';
+  },
+
+  setPackageLabel(which, pkg) {
+    document.getElementById(which + '-pkg-text').innerText = pkg.name;
+    if (which === 'edit') Admin.selectedEditPkg = pkg.id;
+    else Admin.selectedActivatePkg = pkg.id;
+  },
+
+  openPackagePicker(which) {
+    Admin.openPicker('Избери пакет', PACKAGES.map(p => ({ value: p.id, label: p.name })), value => {
+      Admin.setPackageLabel(which, Admin.findPackage(value));
+      if (which === 'edit') Admin.loadPkgQty();
+    });
+  },
+
+  loadPkgQty() {
+    const stock = Admin.stock || {};
+    const v = stock[Admin.selectedEditPkg];
+    document.getElementById('edit-pkg-qty').value = (v === undefined || v === null) ? '' : v;
+  },
+
+  async savePkgQty() {
+    const qty = parseInt(document.getElementById('edit-pkg-qty').value, 10);
+    if (isNaN(qty) || qty < 0) return Admin.toast('Въведи валидно количество.', 'error');
+    try {
+      await db.ref('settings/stock/' + Admin.selectedEditPkg).set(qty);
+      Admin.toast('Количеството на пакета е обновено.', 'success');
+    } catch (e) {
+      Admin.toast('Количеството не бе обновено: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  async activatePackageForUser() {
+    const idInput = document.getElementById('activate-user-id').value.trim();
+    if (!idInput) return Admin.toast('Въведи ID на потребител.', 'error');
+
+    const userKey = await Admin.resolveUserKey(idInput);
+    if (!userKey) return Admin.toast('Няма потребител с ID ' + idInput + '.', 'error');
+
+    const pkg = Admin.findPackage(Admin.selectedActivatePkg);
+    if (!pkg) return Admin.toast('Първо избери пакет от списъка.', 'error');
+
+    const u = Admin.usersCache[userKey] || {};
+    const updates = (u.activePackage && u.activePackage !== 'none')
+      ? { ['extraPackages/pkg_' + Admin.serverNow()]: {
+            name: pkg.name, daily: pkg.daily, price: pkg.price,
+            activatedAt: firebase.database.ServerValue.TIMESTAMP } }
+      : { activePackage: pkg.name, dailyProfit: pkg.daily, packagePrice: pkg.price,
+          investedAmount: pkg.price, packageActivatedAt: firebase.database.ServerValue.TIMESTAMP };
+
+    try {
+      await db.ref('users/' + userKey).update(updates);
+      Admin.toast('Пакет "' + pkg.name + '" е активиран за ID ' + idInput + '.', 'success');
+      document.getElementById('activate-user-id').value = '';
+    } catch (e) {
+      Admin.toast('Пакетът не бе активиран: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  async togglePromo() {
+    try {
+      const snap = await db.ref('settings/promo').get();
+      const currentlyOn = !!(snap.exists() && snap.val() && snap.val().isActive);
+      const newOn = !currentlyOn;
+      await db.ref('settings/promo').set({
+        isActive: newOn,
+        endTime: newOn ? (Admin.serverNow() + 24 * 60 * 60 * 1000) : 0
+      });
+      Admin.toast(newOn ? '24ч промо стартирано.' : 'Промо спряно.', 'success');
+    } catch (e) {
+      Admin.toast('Настройката не бе обновена: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  async toggleInfinity() {
+    try {
+      const snap = await db.ref('settings/solarInfinityEnabled').get();
+      const newVal = !(snap.exists() && snap.val() === true);
+      await db.ref('settings/solarInfinityEnabled').set(newVal);
+      Admin.toast(newVal ? 'Включено.' : 'Изключено.', 'success');
+    } catch (e) {
+      Admin.toast('Настройката не бе обновена: ' + Admin.errText(e), 'error');
+    }
+  },
+
+  openWipeGate() {
+    document.getElementById('wipe-gate-pass').value = '';
+    document.getElementById('wipe-gate-modal').classList.add('show');
+  },
+
+  async confirmWipeGate() {
+    const pass = document.getElementById('wipe-gate-pass').value.trim();
+    if (!pass) return Admin.toast('Въведи паролата за админ панела.', 'error');
+    try {
+      const r = await window.SUPABASE.rpc('admin_login', { p_pass: pass });
+      if (r.error) throw r.error;
+      if (!r.data || !r.data.ok) return Admin.toast('Грешна парола.', 'error');
+      Admin.wipePass = pass;
+      Admin.closeModal('wipe-gate-modal');
+      document.getElementById('wipe-choice-modal').classList.add('show');
+    } catch (e) {
+      Admin.toast('Няма връзка с базата данни.', 'error');
+    }
+  },
+
+  exportAllData() {
+    const rows = [['User ID', 'Username', 'Email', 'Инвестирани пари (USDT)']];
+    Object.entries(Admin.usersCache || {}).forEach(([key, u]) => {
+      if (!u) return;
+      let invested = 0;
+      if (u.activePackage && u.activePackage !== 'none') {
+        invested = parseFloat(u.packagePrice || u.investedAmount || 0);
+      }
+      Object.values(u.extraPackages || {}).forEach(p => { invested += parseFloat(p.price || 0); });
+      rows.push([u.myCode || key, u.username || '', u.email || '', invested.toFixed(2)]);
+    });
+
+    const csv = rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\r\n');
+    const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'solar_power_users_' + new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-') + '.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+    Admin.toast('CSV файлът е свален (' + (rows.length - 1) + ' потребителя).', 'success');
+  },
+
+  openWipeConfirm() {
+    Admin.closeModal('wipe-choice-modal');
+    document.getElementById('wipe-phrase').value = '';
+    document.getElementById('wipe-modal').classList.add('show');
+  },
+
+  async confirmWipe() {
+    const phrase = document.getElementById('wipe-phrase').value.trim();
+    if (!phrase) return Admin.toast('Въведи паролата за изтриване.', 'error');
+    if (!Admin.wipePass) return Admin.toast('Потвърди отново самоличността си.', 'error');
+    try {
+      const r = await window.SUPABASE.rpc('admin_wipe', { p_pass: Admin.wipePass, p_phrase: phrase });
+      if (r.error) throw r.error;
+      if (!r.data || !r.data.ok) {
+        return Admin.toast(r.data && r.data.reason === 'phrase'
+          ? 'Грешна парола за изтриване.' : 'Грешна парола за админ панела.', 'error');
+      }
+      Admin.wipePass = null;
+      Admin.closeModal('wipe-modal');
+      Admin.toast('Базата данни е изтрита.', 'success');
+    } catch (e) {
+      Admin.toast('Базата данни не бе изтрита: ' + Admin.errText(e), 'error');
+    }
+  }
+};
+
+window.Admin = Admin;
+window.rtdbReady.then(() => Admin.start());
+</script>
+</body>
+</html>
