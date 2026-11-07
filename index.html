@@ -17,13 +17,37 @@
 (function () {
   'use strict';
 
+  if (!window.supabase) {
+    window.addEventListener('DOMContentLoaded', function () {
+      document.body.textContent = 'Не успях да заредя библиотеката за базата данни. Провери интернет връзката и презареди страницата.';
+    });
+    return;
+  }
+
   var SUPABASE_URL = 'https://mdyssxuhtqmrsovmdqwr.supabase.co';
   var SUPABASE_KEY = 'sb_publishable_HWtqEikwpf6AewaADW3ycA_3OcuwGWB';
 
   var SB = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
-    auth: { persistSession: false },
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
+      lock: function (name, acquireTimeout, fn) { return fn(); }
+    },
     realtime: { params: { eventsPerSecond: 20 } }
   });
+
+  var rawRpc = SB.rpc.bind(SB);
+  SB.rpc = function (name, args) {
+    return Promise.race([
+      Promise.resolve(rawRpc(name, args)),
+      new Promise(function (resolve) {
+        setTimeout(function () {
+          resolve({ data: null, error: { message: 'Заявката към базата данни изтече.' } });
+        }, 15000);
+      })
+    ]);
+  };
 
   var SENTINEL = { __srvts: true };
 
@@ -178,16 +202,47 @@
     } catch (e) {}
   }
 
+  var vers = null;
   var polling = false;
-  setInterval(function () {
-    if (polling || !listeners.length || document.hidden) return;
-    polling = true;
+  var lastFull = 0;
+
+  function listenedPaths() {
     var paths = {};
     listeners.forEach(function (l) { paths[l.path] = 1; });
-    Promise.all(Object.keys(paths).map(function (p) { return refresh(p, false); }))
-      .catch(function () {})
-      .then(function () { polling = false; });
-  }, 12000);
+    return Object.keys(paths);
+  }
+
+  function refreshAll() {
+    lastFull = Date.now();
+    return Promise.all(listenedPaths().map(function (p) { return refresh(p, false); }));
+  }
+
+  async function pollVersions() {
+    if (polling || !listeners.length || document.hidden) return;
+    polling = true;
+    try {
+      var r = await SB.rpc('rtdb_vers');
+      if (r.error || !r.data) {
+        if (Date.now() - lastFull > 12000) await refreshAll();
+        return;
+      }
+      var prev = vers;
+      vers = r.data;
+      if (!prev) { await refreshAll(); return; }
+      var changed = {};
+      var any = false;
+      for (var k in vers) if (vers[k] !== prev[k]) { changed[k] = 1; any = true; }
+      if (!any) return;
+      await Promise.all(listenedPaths().filter(function (p) {
+        return p === '' || changed[p.split('/')[0]];
+      }).map(function (p) { return refresh(p, false); }));
+    } finally {
+      polling = false;
+    }
+  }
+
+  setInterval(pollVersions, 3000);
+  setInterval(function () { if (!document.hidden) refreshAll(); }, 60000);
 
   function SbRef(path) {
     this.path = norm(path);
@@ -241,7 +296,7 @@
   window.SrvTime = SrvTime;
   window.sofiaIsWithdrawWindow = sofiaIsWithdrawWindow;
 
-  window.rtdbReady = SrvTime.tick().catch(function () { return SrvTime.sync().catch(function () {}); });
+  SrvTime.tick().catch(function () { return SrvTime.sync().catch(function () {}); });
 
   setInterval(function () {
     if (document.hidden) return;
@@ -249,7 +304,9 @@
   }, 30000);
 
   document.addEventListener('visibilitychange', function () {
-    if (!document.hidden) SrvTime.tick().catch(function () {});
+    if (document.hidden) return;
+    SrvTime.tick().catch(function () {});
+    pollVersions();
   });
 })();
 </script>
@@ -1867,7 +1924,9 @@ const Admin = {
 };
 
 window.Admin = Admin;
-window.rtdbReady.then(() => Admin.start());
+window.addEventListener('error', e => Admin.toast('Грешка: ' + e.message, 'error'));
+window.addEventListener('unhandledrejection', e => Admin.toast('Грешка: ' + Admin.errText(e.reason), 'error'));
+Admin.start();
 </script>
 </body>
 </html>
