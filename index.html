@@ -624,21 +624,9 @@ body{
       </div>
 
       <div class="section-card">
-        <div class="section-title"><i class="fas fa-layer-group"></i> Редакция на количество пакети</div>
-        <div class="picker-trigger" onclick="Admin.openPackagePicker('edit')">
-          <span id="edit-pkg-text">Избери пакет</span>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="field-row">
-          <input type="text" inputmode="numeric" id="edit-pkg-qty" placeholder="Оставащо количество">
-          <button class="pencil-btn" onclick="Admin.savePkgQty()"><i class="fas fa-check"></i></button>
-        </div>
-      </div>
-
-      <div class="section-card">
         <div class="section-title"><i class="fas fa-solar-panel"></i> Активиране на инвестиционен пакет</div>
         <div class="field-row"><input type="text" id="activate-user-id" placeholder="ID на потребител"></div>
-        <div class="picker-trigger" onclick="Admin.openPackagePicker('activate')">
+        <div class="picker-trigger" onclick="Admin.openPackagePicker()">
           <span id="activate-pkg-text">Избери пакет</span>
           <i class="fas fa-chevron-down"></i>
         </div>
@@ -665,7 +653,7 @@ body{
           <i class="fas fa-clock"></i><span>Старт 24ч промо</span>
         </div>
         <div class="toggle-sq" id="tgl-legendary" onclick="Admin.toggleInfinity()">
-          <i class="fas fa-star"></i><span>Solar Legendary</span>
+          <i class="fas fa-star"></i><span>AI 11</span>
         </div>
         <div class="toggle-sq danger" onclick="Admin.openWipeGate()" title="Изтриване на базата">
           <i class="fas fa-radiation"></i>
@@ -899,18 +887,17 @@ body{
 const db = firebase.database();
 
 const PACKAGES = [
-  { id: 'solar_start',          name: 'Eco X1',     price: 30,    daily: 1.5 },
-  { id: 'sun_basic',            name: 'Eco X2',       price: 50,    daily: 2.5 },
-  { id: 'eco_plus',             name: 'Eco X3',        price: 100,   daily: 5 },
-  { id: 'green_power',          name: 'Eco X4',     price: 150,   daily: 7.5 },
-  { id: 'solar_prime',          name: 'Eco X5',     price: 250,   daily: 12.5 },
-  { id: 'energy_pro',           name: 'Eco X6',      price: 400,   daily: 24 },
-  { id: 'sun_elite',            name: 'Eco X7',       price: 750,   daily: 45 },
-  { id: 'eco_platinum',         name: 'Eco X8',    price: 1200,  daily: 72 },
-  { id: 'solar_infinity',       name: 'Eco X9',  price: 1800,  daily: 108 },
-  { id: 'green_titan',          name: 'Eco X10',     price: 3000,  daily: 210 },
-  { id: 'solar_legend',         name: 'Eco X11',    price: 8000,  daily: 640 },
-  { id: 'solar_power_infinity', name: 'MAX ECO X100', price: 20000, daily: 1700 }
+  { id: 'solar_start',          name: 'AI 1',  price: 30,    daily: 1.5 },
+  { id: 'eco_plus',             name: 'AI 2',  price: 100,   daily: 5 },
+  { id: 'green_power',          name: 'AI 3',  price: 150,   daily: 7.5 },
+  { id: 'solar_prime',          name: 'AI 4',  price: 250,   daily: 12.5 },
+  { id: 'energy_pro',           name: 'AI 5',  price: 400,   daily: 24 },
+  { id: 'sun_elite',            name: 'AI 6',  price: 750,   daily: 45 },
+  { id: 'eco_platinum',         name: 'AI 7',  price: 1200,  daily: 72 },
+  { id: 'solar_infinity',       name: 'AI 8',  price: 1800,  daily: 108 },
+  { id: 'green_titan',          name: 'AI 9',  price: 3000,  daily: 210 },
+  { id: 'solar_legend',         name: 'AI 10', price: 8000,  daily: 640 },
+  { id: 'solar_power_infinity', name: 'AI 11', price: 20000, daily: 1700 }
 ];
 
 const Admin = {
@@ -925,7 +912,6 @@ const Admin = {
   devicesTab: 'active',
   currentEditKey: null,
   currentChatUid: null,
-  selectedEditPkg: PACKAGES[0].id,
   selectedActivatePkg: PACKAGES[0].id,
   lastTickAt: 0,
   booted: false,
@@ -977,25 +963,9 @@ const Admin = {
     else b.style.display = 'none';
   },
 
-  LEGACY: {
-    'Solar Start': 'Eco X1',
-    'Sun Basic': 'Eco X2',
-    'Eco Plus': 'Eco X3',
-    'Green Power': 'Eco X4',
-    'Solar Prime': 'Eco X5',
-    'Energy Pro': 'Eco X6',
-    'Sun Elite': 'Eco X7',
-    'Eco Platinum': 'Eco X8',
-    'Solar Infinity': 'Eco X9',
-    'Green Titan': 'Eco X10',
-    'Solar Legend': 'Eco X11',
-    'Solar Legendary': 'MAX ECO X100'
-  },
-
   findPackage(idOrName) {
     const q = String(idOrName || '');
-    const key = Admin.LEGACY[q] || q;
-    return PACKAGES.find(p => p.id === key || p.name === key) || null;
+    return PACKAGES.find(p => p.id === q || p.name === q) || null;
   },
 
   async refreshGateStatus() {
@@ -1133,9 +1103,7 @@ const Admin = {
     Admin.listenSessions();
     Admin.listenSettings();
     Admin.listenPasswordRequests();
-    Admin.setPackageLabel('edit', PACKAGES[0]);
-    Admin.setPackageLabel('activate', PACKAGES[0]);
-    Admin.loadPkgQty();
+    Admin.setPackageLabel(PACKAGES[0]);
     Admin.renderServerStatus();
     if (Admin.clockTimer) clearInterval(Admin.clockTimer);
     Admin.clockTimer = setInterval(() => Admin.renderServerStatus(), 1000);
@@ -1217,10 +1185,8 @@ const Admin = {
       const s = snap.exists() ? (snap.val() || {}) : {};
       document.getElementById('tgl-promo').classList.toggle('on', !!(s.promo && s.promo.isActive));
       document.getElementById('tgl-legendary').classList.toggle('on', s.solarInfinityEnabled === true);
-      Admin.stock = s.stock || {};
       Admin.lastTickAt = s.lastTickAt || 0;
       Admin.renderServerStatus();
-      Admin.loadPkgQty();
     });
   },
 
@@ -1765,34 +1731,15 @@ const Admin = {
     document.getElementById('picker-overlay').style.display = 'none';
   },
 
-  setPackageLabel(which, pkg) {
-    document.getElementById(which + '-pkg-text').innerText = pkg.name;
-    if (which === 'edit') Admin.selectedEditPkg = pkg.id;
-    else Admin.selectedActivatePkg = pkg.id;
+  setPackageLabel(pkg) {
+    document.getElementById('activate-pkg-text').innerText = pkg.name;
+    Admin.selectedActivatePkg = pkg.id;
   },
 
-  openPackagePicker(which) {
+  openPackagePicker() {
     Admin.openPicker('Избери пакет', PACKAGES.map(p => ({ value: p.id, label: p.name })), value => {
-      Admin.setPackageLabel(which, Admin.findPackage(value));
-      if (which === 'edit') Admin.loadPkgQty();
+      Admin.setPackageLabel(Admin.findPackage(value));
     });
-  },
-
-  loadPkgQty() {
-    const stock = Admin.stock || {};
-    const v = stock[Admin.selectedEditPkg];
-    document.getElementById('edit-pkg-qty').value = (v === undefined || v === null) ? '' : v;
-  },
-
-  async savePkgQty() {
-    const qty = parseInt(document.getElementById('edit-pkg-qty').value, 10);
-    if (isNaN(qty) || qty < 0) return Admin.toast('Въведи валидно количество.', 'error');
-    try {
-      await db.ref('settings/stock/' + Admin.selectedEditPkg).set(qty);
-      Admin.toast('Количеството на пакета е обновено.', 'success');
-    } catch (e) {
-      Admin.toast('Количеството не бе обновено: ' + Admin.errText(e), 'error');
-    }
   },
 
   async activatePackageForUser() {
