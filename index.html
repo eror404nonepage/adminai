@@ -681,7 +681,7 @@ body{
       </div>
 
       <div class="section-card">
-        <div class="section-title"><i class="fas fa-solar-panel"></i> Активиране на инвестиционен пакет</div>
+        <div class="section-title"><i class="fas fa-layer-group"></i> Активиране на инвестиционен пакет</div>
         <div class="field-row"><input type="text" id="activate-user-id" placeholder="ID на потребител"></div>
         <div class="picker-trigger" onclick="Admin.openPackagePicker()">
           <span id="activate-pkg-text">Избери пакет</span>
@@ -709,7 +709,7 @@ body{
         <div class="toggle-sq" id="tgl-promo" onclick="Admin.togglePromo()">
           <i class="fas fa-clock"></i><span>Старт 24ч промо</span>
         </div>
-        <div class="toggle-sq" id="tgl-legendary" onclick="Admin.toggleInfinity()">
+        <div class="toggle-sq" id="tgl-ai11" onclick="Admin.toggleInfinity()">
           <i class="fas fa-star"></i><span>AI 11</span>
         </div>
         <div class="toggle-sq danger" onclick="Admin.openWipeGate()" title="Изтриване на базата">
@@ -916,7 +916,6 @@ body{
 
 <script>
 (function () {
-  const icon = document.querySelector('link[rel="icon"]').href;
   const manifest = {
     name: 'Admin',
     short_name: 'Admin',
@@ -924,37 +923,28 @@ body{
     scope: location.pathname,
     display: 'standalone',
     background_color: '#05080f',
-    theme_color: '#05080f',
-    icons: [
-      { src: icon, sizes: '192x192', type: 'image/jpeg' },
-      { src: icon, sizes: '512x512', type: 'image/jpeg' }
-    ]
+    theme_color: '#05080f'
   };
-  const add = (rel, href) => {
-    const l = document.createElement('link');
-    l.rel = rel;
-    l.href = href;
-    document.head.appendChild(l);
-  };
-  add('apple-touch-icon', icon);
-  add('manifest', URL.createObjectURL(
-    new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' })));
+  const link = document.createElement('link');
+  link.rel = 'manifest';
+  link.href = URL.createObjectURL(new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' }));
+  document.head.appendChild(link);
 })();
 
 const db = firebase.database();
 
 const PACKAGES = [
-  { id: 'solar_start',          name: 'AI 1',  price: 30,    daily: 1.5 },
-  { id: 'eco_plus',             name: 'AI 2',  price: 100,   daily: 5 },
-  { id: 'green_power',          name: 'AI 3',  price: 150,   daily: 7.5 },
-  { id: 'solar_prime',          name: 'AI 4',  price: 250,   daily: 12.5 },
-  { id: 'energy_pro',           name: 'AI 5',  price: 400,   daily: 24 },
-  { id: 'sun_elite',            name: 'AI 6',  price: 750,   daily: 45 },
-  { id: 'eco_platinum',         name: 'AI 7',  price: 1200,  daily: 72 },
-  { id: 'solar_infinity',       name: 'AI 8',  price: 1800,  daily: 108 },
-  { id: 'green_titan',          name: 'AI 9',  price: 3000,  daily: 210 },
-  { id: 'solar_legend',         name: 'AI 10', price: 8000,  daily: 640 },
-  { id: 'solar_power_infinity', name: 'AI 11', price: 20000, daily: 1700 }
+  { id: 'ai_1',  name: 'AI 1',  price: 30,    daily: 1.5 },
+  { id: 'ai_2',  name: 'AI 2',  price: 100,   daily: 5 },
+  { id: 'ai_3',  name: 'AI 3',  price: 150,   daily: 7.5 },
+  { id: 'ai_4',  name: 'AI 4',  price: 250,   daily: 12.5 },
+  { id: 'ai_5',  name: 'AI 5',  price: 400,   daily: 24 },
+  { id: 'ai_6',  name: 'AI 6',  price: 750,   daily: 45 },
+  { id: 'ai_7',  name: 'AI 7',  price: 1200,  daily: 72 },
+  { id: 'ai_8',  name: 'AI 8',  price: 1800,  daily: 108 },
+  { id: 'ai_9',  name: 'AI 9',  price: 3000,  daily: 210 },
+  { id: 'ai_10', name: 'AI 10', price: 8000,  daily: 640 },
+  { id: 'ai_11', name: 'AI 11', price: 20000, daily: 1700 }
 ];
 
 const Admin = {
@@ -1241,7 +1231,7 @@ const Admin = {
     db.ref('settings').on('value', snap => {
       const s = snap.exists() ? (snap.val() || {}) : {};
       document.getElementById('tgl-promo').classList.toggle('on', !!(s.promo && s.promo.isActive));
-      document.getElementById('tgl-legendary').classList.toggle('on', s.solarInfinityEnabled === true);
+      document.getElementById('tgl-ai11').classList.toggle('on', s.ai11Enabled === true);
       Admin.lastTickAt = s.lastTickAt || 0;
       Admin.renderServerStatus();
     });
@@ -1843,9 +1833,9 @@ const Admin = {
 
   async toggleInfinity() {
     try {
-      const snap = await db.ref('settings/solarInfinityEnabled').get();
+      const snap = await db.ref('settings/ai11Enabled').get();
       const newVal = !(snap.exists() && snap.val() === true);
-      await db.ref('settings/solarInfinityEnabled').set(newVal);
+      await db.ref('settings/ai11Enabled').set(newVal);
       Admin.toast(newVal ? 'Включено.' : 'Изключено.', 'success');
     } catch (e) {
       Admin.toast('Настройката не бе обновена: ' + Admin.errText(e), 'error');
